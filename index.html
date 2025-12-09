@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALPINIA – Premium Landscaping Experts</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome (for icons in services) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7fdf8;
+      color: #2d2d2d;
+      scroll-behavior: smooth;
+      margin:0px;
+      padding:0px;
+    }
+.navbar-toggler-icon{
+  background-color:rgb(4, 160, 4) !important;
+}
+    /* Navbar */
+    .navbar {
+      background: #a9fadf;
+      box-shadow: 04 2px 10px rgba(0,0,0,0.1);
+      border-bottom: 4px solid #056651;
+    }
+
+    .navbar-brand {
+      font-size: 28px;
+      font-weight: 700;
+      color: #f0c75e !important;
+      letter-spacing: 1px;
+    }
+
+    .nav-link {
+      color: #056651 !important;
+      margin-right: 15px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: #f0c75e !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #f0c75e;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Carousel */
+    .carousel-item img {
+      height: 70vh;
+      object-fit: cover;
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #0f3d2e;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #f0c75e;
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+
+    .highlight {
+      color: #f0c75e;
+    }
+
+    /* Cards */
+    .idea-card, .test-card, .service-card, .blog-card, .gallery-item {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: all 0.35s ease;
+      overflow: hidden;
+    }
+
+    .idea-card:hover,
+    .test-card:hover,
+    .service-card:hover,
+    .blog-card:hover,
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .idea-card img,
+    .blog-card img,
+    .gallery-item img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .service-icon {
+      font-size: 2.2rem;
+      color: #f0c75e;
+      margin-bottom: 15px;
+    }
+
+    /* Testimonials */
+    .test-card {
+      text-align: center;
+      padding: 25px;
+    }
+
+    .test-card p {
+      font-style: italic;
+      color: #444;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f3d2e;
+      color: #fff;
+      padding: 40px 0 20px;
+    }
+
+    footer a {
+      color: #f0c75e;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Smooth Scroll Offset */
+    html {
+      scroll-padding-top: 80px;
+    }
+  .avatar-premium {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, #e5b941, #ffdd66);
+  }
+  .avatar-premium img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  .star-rating i {
+    color: #e5b941;
+    margin-right: 2px;
+  }
+    @media (max-width: 992px) {
+      .carousel-item img {
+        height: 50vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home"><img src="img/logo.png" alt="Logo" ></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#blogs">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO CAROUSEL -->
+  <section id="home" class="pt-5">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://media.istockphoto.com/id/604360770/photo/beautiful-spacious-garden.jpg?s=1024x1024&w=is&k=20&c=RPw4xr8zdrDFH3MGb2NONqYHYgnLX8tJnePmPwg5-Mc=" class="d-block w-100" alt="Lush garden retreat">
+        </div>
+        <div class="carousel-item">
+          <img src="https://media.istockphoto.com/id/519435036/photo/beautiful-new-design-white-villa.jpg?s=1024x1024&w=is&k=20&c=GGrP1z_x_TjIeFydxfaJ7L5crZoDXJwcycX5pmjiCJA=" class="d-block w-100" alt="Modern patio design">
+        </div>
+        <div class="carousel-item">
+          <img src="https://media.istockphoto.com/id/1394010549/photo/home-exterior-at-dusk-in-riyadh-saudi-arabia.jpg?s=1024x1024&w=is&k=20&c=L6503UCS0HDd1JKkBxyr0sYI06vRfU3YLMeNZ8U2IXc=" class="d-block w-100" alt="Elegant outdoor lighting">
+        </div>
+        <div class="carousel-item">
+          <img src="https://media.istockphoto.com/id/519434778/photo/elegant-new-villa-with-backyard.jpg?s=1024x1024&w=is&k=20&c=rdAMhpWbH3X7SimP_KtDbqItxSdNdNRVhtsSpjLvnFA=" class="d-block w-100" alt="Stone pathway and greenery">
+        </div>
+        <div class="carousel-item">
+          <img src="https://media.istockphoto.com/id/480990286/photo/beautiful-park.jpg?s=1024x1024&w=is&k=20&c=MBpCMM2ZlZ2fBKtw2nDvbf9TjBkqFyJQgg81d5a9wQc=" class="d-block w-100" alt="Backyard transformation">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Crafting Beautiful Outdoor Spaces</h2>
+      <p class="text-center w-75 mx-auto fs-5">
+        With over <span class="highlight">20 years of experience</span>, ALPINIA brings premium garden design and landscaping services right to your doorstep. From transforming simple backyards into lush green retreats to building elegant outdoor structures, we help turn your dream outdoor space into a living reality.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="service-card p-4 text-center">
+            <div class="service-icon"><i class="fas fa-leaf"></i></div>
+            <h5>Softscaping</h5>
+            <p>Plant selection, lawn care, flower beds, and seasonal color schemes.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card p-4 text-center">
+            <div class="service-icon"><i class="fas fa-mountain"></i></div>
+            <h5>Hardscaping</h5>
+            <p>Patios, pathways, retaining walls, and decorative stonework.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card p-4 text-center">
+            <div class="service-icon"><i class="fas fa-water"></i></div>
+            <h5>Irrigation Systems</h5>
+            <p>Smart, efficient watering solutions tailored to your landscape.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card p-4 text-center">
+            <div class="service-icon"><i class="fas fa-couch"></i></div>
+            <h5>Outdoor Living</h5>
+            <p>Seating areas, pergolas, fire pits, and outdoor kitchens.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card p-4 text-center">
+            <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+            <h5>Garden Lighting</h5>
+            <p>Atmospheric and functional lighting for safety and beauty.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card p-4 text-center">
+            <div class="service-icon"><i class="fas fa-tools"></i></div>
+            <h5>Maintenance</h5>
+            <p>Year-round care to keep your garden pristine and thriving.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANDSCAPING IDEAS -->
+  <section id="ideas" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Landscaping Ideas</h2>
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="idea-card p-4">
+            <img src="https://media.istockphoto.com/id/2219654236/photo/park-landscape-design-with-ornamental-shrubs-and-trees.jpg?s=612x612&w=0&k=20&c=HfaM9MtElYWegoOsf0Ig4-1NtbE3zJ3NADfUlZn5Fn4=" class="w-100 rounded mb-3" alt="Tropical Garden">
+            <h5>Lush Tropical Gardens</h5>
+            <p>Create a refreshing paradise with premium tropical plants.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="idea-card p-4">
+            <img src="https://media.istockphoto.com/id/609087282/photo/modern-mansion-with-stylish-backyard.jpg?s=612x612&w=0&k=20&c=AYiCOlUZVT-vz0hspd7t4-S2AhTqJ_ZWOkWqCTxZj_k=" class="w-100 rounded mb-3" alt="Minimalist Design">
+            <h5>Modern Minimalist Spaces</h5>
+            <p>Clean lines, neat spaces, and calm green textures.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="idea-card p-4">
+            <img src="https://media.istockphoto.com/id/628462780/photo/beautiful-landscape-design.jpg?s=612x612&w=0&k=20&c=kIJRE3Y2_ph7mgquZ9rXShJodadRIy0HNnpr9m26OG4=" class="w-100 rounded mb-3" alt="Patio Design">
+            <h5>Stone & Wood Patio</h5>
+            <p>A blend of rustic elegance and contemporary charm.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE PLAN -->
+  <section id="process" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="section-title">How We Bring Your Ideas to Reality</h2>
+      <div class="row mt-4 g-4">
+        <div class="col-md-4">
+          <div class="idea-card p-4">
+            <div class="mb-3"><i class="fas fa-comments fa-2x text-success"></i></div>
+            <h5>1. Consultation</h5>
+            <p>We understand your vision, taste, and budget.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="idea-card p-4">
+            <div class="mb-3"><i class="fas fa-paint-brush fa-2x text-warning"></i></div>
+            <h5>2. Professional Design</h5>
+            <p>Our designers craft a tailored landscape concept.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="idea-card p-4">
+            <div class="mb-3"><i class="fas fa-hard-hat fa-2x text-primary"></i></div>
+            <h5>3. Execution & Maintenance</h5>
+            <p>Flawless implementation with ongoing care services.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+<section id="testimonials" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Client Testimonials</h2>
+
+    <div class="row g-4">
+
+      <!-- Testimonial 1 -->
+      <div class="col-md-4">
+        <div class="test-card p-4">
+          
+          <div class="d-flex align-items-center mb-3">
+            <div class="avatar-premium me-3">
+              <img src="https://i.pravatar.cc/200?img=12" alt="Client Image">
+            </div>
+            <div>
+              <h6 class="mb-0">Ramesh Nair</h6>
+              <small>Mumbai</small>
+            </div>
+          </div>
+
+          <!-- Star Rating -->
+          <div class="star-rating mb-3">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+          </div>
+
+          <p>"ALPINIA transformed our backyard into a dream garden. Truly premium service with attention to every detail."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="col-md-4">
+        <div class="test-card p-4">
+          
+          <div class="d-flex align-items-center mb-3">
+            <div class="avatar-premium me-3">
+              <img src="https://i.pravatar.cc/200?img=47" alt="Client Image">
+            </div>
+            <div>
+              <h6 class="mb-0">Zoya Mathew</h6>
+              <small>Bangalore</small>
+            </div>
+          </div>
+
+          <div class="star-rating mb-3">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+
+          <p>"Perfect balance of creativity and quality. They understood our style and delivered beyond expectations!"</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="col-md-4">
+        <div class="test-card p-4">
+          
+          <div class="d-flex align-items-center mb-3">
+            <div class="avatar-premium me-3">
+              <img src="https://i.pravatar.cc/200?img=33" alt="Client Image">
+            </div>
+            <div>
+              <h6 class="mb-0">Thomas George</h6>
+              <small>Delhi</small>
+            </div>
+          </div>
+
+          <div class="star-rating mb-3">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+
+          <p>"Professional team, clean finishing, and great value for money. Our garden is the envy of the neighborhood!"</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Font Awesome for Stars -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Our Work</h2>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="gallery-item">
+            <img src="https://media.istockphoto.com/id/506893946/photo/green-lawn-in-the-backyard.jpg?s=612x612&w=0&k=20&c=1_O_l1MIWCtJxNbrjg0BpEFhX8FZZ26EHrX_K77zRG4=" class="w-100" alt="Project 1">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-item">
+            <img src="https://media.istockphoto.com/id/1329053260/photo/beautiful-backyard-garden-with-nicely-trimmed-bonsai-bushes-and-trees.jpg?s=612x612&w=0&k=20&c=eZR9UpG62BmqJ3d26egaJLvCj062hTOSl2p-O1Nrdq0=" class="w-100" alt="Project 2">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-item">
+            <img src="https://media.istockphoto.com/id/528182181/photo/front-yard-landscape-design.jpg?s=612x612&w=0&k=20&c=gKkSfulIX4Dax8zKF92nUyAKRz9A6Q_lW1Nz_70_Bis=" class="w-100" alt="Project 3">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-item">
+            <img src="https://media.istockphoto.com/id/478414034/photo/beautiful-spring-garden-design.jpg?s=612x612&w=0&k=20&c=lTYMFMfzglKnaMwlYpyCEOP2ER9nnUW0krCTpL71UQY=" class="w-100" alt="Project 4">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-item">
+            <img src="https://media.istockphoto.com/id/1316298440/photo/landscaping-round-the-lawn-with-trees-and-shrubs-planting.jpg?s=612x612&w=0&k=20&c=OVzPbfJVypstTQyxwOy_cVi1M9YCAaFQsBiKt-Uow5M=" class="w-100" alt="Project 5">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-item">
+            <img src="https://media.istockphoto.com/id/1385721172/photo/iron-lantern-ground-garden-lighting-of-park-with-crescent-walkway-paved-with-brick-stone.jpg?s=612x612&w=0&k=20&c=74GVfJMSZG126HL1KW2djD2gCqFni77_ftfnD9Qkux4=" class="w-100" alt="Project 6">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOGS (Placeholder) -->
+  <section id="blogs" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Latest Blog Insights</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="blog-card">
+            <img src="https://cdn.shopify.com/s/files/1/0555/8363/7660/files/Urban-plants-landscape.jpg?v=1660037619" class="w-100" alt="Blog 1">
+            <div class="p-3">
+              <h5>Top 5 Plants for Indian Summers</h5>
+              <p class="text-muted small">June 10, 2025</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="blog-card">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/low-maintenance-garden-stylish-and-luxurious-outdoor-room-garden-design-in-london-1615482878.jpg?crop=0.670xw:1.00xh;0.256xw,0&resize=1200:*" class="w-100" alt="Blog 2">
+            <div class="p-3">
+              <h5>Designing a Low-Maintenance Garden</h5>
+              <p class="text-muted small">May 22, 2025</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="blog-card">
+            <img src="https://images-cdn.ubuy.co.in/65e3547d91cb95323437bed1-solar-pathway-lights-outdoor-8-pack.jpg" class="w-100" alt="Blog 3">
+            <div class="p-3">
+              <h5>Outdoor Lighting: Mood & Safety</h5>
+              <p class="text-muted small">April 18, 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="#" class="btn btn-outline-success">View All Blogs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h4 class="mb-3">ALPINIA Landscaping Services</h4>
+          <p>Bringing nature closer to your home with elegance, creativity, and decades of trusted expertise.</p>
+          <p><i class="fas fa-envelope me-2"></i> info@alpinia.in</p>
+          <p><i class="fas fa-phone me-2"></i> +91 98765 43210</p>
+        </div>
+        <div class="col-md-6">
+          <h5 class="mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4" style="background: #f0c75e; height: 1px; border: 0;" />
+      <p class="text-center mb-0">© 2025 ALPINIA. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Smooth Scroll (optional enhancement) -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
