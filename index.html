@@ -24,12 +24,58 @@
       margin:0px;
       padding:0px;
     }
-.navbar-toggler-icon{
-  background-color:rgb(4, 160, 4) !important;
+    
+    /* Scroll animation classes */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    .animate-on-scroll.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Faster animation for smaller elements */
+    .animate-fast {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    
+    .animate-fast.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Delay classes for staggered animations */
+    .delay-1 {
+      transition-delay: 0.1s;
+    }
+    
+    .delay-2 {
+      transition-delay: 0.2s;
+    }
+    
+    .delay-3 {
+      transition-delay: 0.3s;
+    }
+    
+    .delay-4 {
+      transition-delay: 0.4s;
+    }
+    
+    .delay-5 {
+      transition-delay: 0.5s;
+    }
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23056651' stroke-width='3' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
+
     /* Navbar */
 .navbar {
-  background: rgba(169, 250, 223, 0.8); /* 80% opacity */
+  background: rgba(255, 255, 255, 0.8); /* 80% opacity */
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   border-bottom: 4px solid #056651;
   backdrop-filter: blur(6px); /* optional glass effect */
@@ -176,6 +222,142 @@
     color: #e5b941;
     margin-right: 2px;
   }
+  .banner{
+    background-color: #0f3d2e;
+  }
+  .text-white{
+    color: #f7fdf8;
+  }
+  /* Background leaf skeleton pattern */
+.ideas-section-bg {
+  position: relative;
+  background: #d9e7da;
+  overflow: hidden;
+}
+
+.ideas-section-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.18;
+  background-size: 300px 200px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%2387CEEB'/%3E%3Cstop offset='100%25' stop-color='%23E0F7FA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='300' height='200' fill='url(%23sky)'/%3E%3Ccircle cx='250' cy='40' r='20' fill='%23FFEB3B' opacity='0.8'/%3E%3Cpath d='M0 150 Q50 120, 100 140 T200 130 T300 150 L300 200 L0 200 Z' fill='%234CAF50'/%3E%3Cpath d='M0 170 Q60 130, 120 160 T240 140 T300 170 L300 200 L0 200 Z' fill='%23388E3C'/%3E%3C/svg%3E");
+  z-index: 0;
+  animation: hillsDrift 25s linear infinite;
+}
+
+.ideas-section-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.18;
+  background-size: 300px 200px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Ccircle cx='250' cy='40' r='20' fill='%23FFEB3B' opacity='0.8'/%3E%3Cpath d='M50 100 Q60 90, 70 100 T90 95 T110 100' fill='none' stroke='white' stroke-width='3' opacity='0.9'/%3E%3Cpath d='M150 80 Q160 70, 170 80 T190 75 T210 80' fill='none' stroke='white' stroke-width='3' opacity='0.9'/%3E%3C/svg%3E");
+  z-index: 0;
+  animation: cloudsDrift 20s linear infinite;
+}
+
+@keyframes hillsDrift {
+  0% {
+    background-position: -300px bottom;
+  }
+  100% {
+    background-position: 0 bottom;
+  }
+}
+
+@keyframes cloudsDrift {
+  0% {
+    background-position: 0 bottom;
+  }
+  100% {
+    background-position: -300px bottom;
+  }
+}
+
+.idea-card {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  z-index: 1;
+}
+
+/* Bushes decoration for the process section */
+.bushes-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M0 15 Q10 5 20 15 T40 15 T60 15 T80 15 T100 15 L100 20 L0 20 Z' fill='%234CAF50'/%3E%3Ccircle cx='10' cy='12' r='3' fill='%23388E3C'/%3E%3Ccircle cx='30' cy='10' r='4' fill='%23388E3C'/%3E%3Ccircle cx='50' cy='13' r='3.5' fill='%23388E3C'/%3E%3Ccircle cx='70' cy='11' r='4' fill='%23388E3C'/%3E%3Ccircle cx='90' cy='14' r='3' fill='%23388E3C'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 100px 30px;
+  z-index: 2;
+}
+
+/* Ensure the section has hidden overflow to contain the bushes */
+#process {
+  overflow: hidden;
+}
+
+/* Fullscreen carousel height */
+#heroCarousel .carousel-item {
+  height: 80vh;
+  min-height: 400px;
+  position: relative;
+}
+
+#heroCarousel .carousel-item img {
+  object-fit: cover;
+  height: 100%;
+}
+
+/* Text Overlay Styling */
+.carousel-caption-custom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  max-width: 900px;
+}
+
+.carousel-caption-custom h1 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Mobile responsive text */
+@media (max-width: 768px) {
+  .carousel-caption-custom h1 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-caption-custom h1 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Smooth fade animation */
+
     @media (max-width: 992px) {
       .carousel-item img {
         height: 50vh;
@@ -215,39 +397,64 @@
   </nav>
 
   <!-- HERO CAROUSEL -->
-  <section id="home" class="pt-5">
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://media.istockphoto.com/id/604360770/photo/beautiful-spacious-garden.jpg?s=1024x1024&w=is&k=20&c=RPw4xr8zdrDFH3MGb2NONqYHYgnLX8tJnePmPwg5-Mc=" class="d-block w-100" alt="Lush garden retreat">
-        </div>
-        <div class="carousel-item">
-          <img src="https://media.istockphoto.com/id/519435036/photo/beautiful-new-design-white-villa.jpg?s=1024x1024&w=is&k=20&c=GGrP1z_x_TjIeFydxfaJ7L5crZoDXJwcycX5pmjiCJA=" class="d-block w-100" alt="Modern patio design">
-        </div>
-        <div class="carousel-item">
-          <img src="https://media.istockphoto.com/id/1394010549/photo/home-exterior-at-dusk-in-riyadh-saudi-arabia.jpg?s=1024x1024&w=is&k=20&c=L6503UCS0HDd1JKkBxyr0sYI06vRfU3YLMeNZ8U2IXc=" class="d-block w-100" alt="Elegant outdoor lighting">
-        </div>
-        <div class="carousel-item">
-          <img src="https://media.istockphoto.com/id/519434778/photo/elegant-new-villa-with-backyard.jpg?s=1024x1024&w=is&k=20&c=rdAMhpWbH3X7SimP_KtDbqItxSdNdNRVhtsSpjLvnFA=" class="d-block w-100" alt="Stone pathway and greenery">
-        </div>
-        <div class="carousel-item">
-          <img src="https://media.istockphoto.com/id/480990286/photo/beautiful-park.jpg?s=1024x1024&w=is&k=20&c=MBpCMM2ZlZ2fBKtw2nDvbf9TjBkqFyJQgg81d5a9wQc=" class="d-block w-100" alt="Backyard transformation">
+<section id="home" class="pt-5">
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <img src="img/img1.jpeg" class="d-block w-100" alt="Lush garden retreat">
+
+        <div class="carousel-caption-custom">
+          <h1>Garden Design & Landscaping Services Right at Your Doorstep</h1>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
+
+      <div class="carousel-item">
+        <img src="img/img2.jpeg" class="d-block w-100" alt="Modern patio design">
+        <div class="carousel-caption-custom">
+          <h1>Garden Design & Landscaping Services Right at Your Doorstep</h1>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="img/img3.jpeg" class="d-block w-100" alt="Elegant outdoor lighting">
+        <div class="carousel-caption-custom">
+          <h1>Garden Design & Landscaping Services Right at Your Doorstep</h1>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="img/img4.jpeg" class="d-block w-100" alt="Stone pathway and greenery">
+        <div class="carousel-caption-custom">
+          <h1>Garden Design & Landscaping Services Right at Your Doorstep</h1>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="img/img5.jpeg" class="d-block w-100" alt="Backyard transformation">
+        <div class="carousel-caption-custom">
+          <h1>Garden Design & Landscaping Services Right at Your Doorstep</h1>
+        </div>
+      </div>
+
     </div>
-  </section>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+</section>
+
 
   <!-- ABOUT SECTION -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="section-title">Crafting Beautiful Outdoor Spaces</h2>
-      <p class="text-center w-75 mx-auto fs-5">
+  <section id="about" class="py-5 banner" >
+    <div class="container ">
+      <h2 class="section-title text-white">Crafting Beautiful Outdoor Spaces</h2>
+      <p class="text-center w-75 mx-auto fs-5 text-white">
         With over <span class="highlight">20 years of experience</span>, ALPINIA brings premium garden design and landscaping services right to your doorstep. From transforming simple backyards into lush green retreats to building elegant outdoor structures, we help turn your dream outdoor space into a living reality.
       </p>
     </div>
@@ -305,37 +512,38 @@
   </section>
 
   <!-- LANDSCAPING IDEAS -->
-  <section id="ideas" class="py-5">
-    <div class="container">
-      <h2 class="section-title">Landscaping Ideas</h2>
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <div class="idea-card p-4">
-            <img src="https://media.istockphoto.com/id/2219654236/photo/park-landscape-design-with-ornamental-shrubs-and-trees.jpg?s=612x612&w=0&k=20&c=HfaM9MtElYWegoOsf0Ig4-1NtbE3zJ3NADfUlZn5Fn4=" class="w-100 rounded mb-3" alt="Tropical Garden">
-            <h5>Lush Tropical Gardens</h5>
-            <p>Create a refreshing paradise with premium tropical plants.</p>
-          </div>
+<section id="ideas" class="py-5 ideas-section-bg">
+  <div class="container">
+    <h2 class="section-title">Landscaping Ideas</h2>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="idea-card p-4">
+          <img src="img/lands1.jpeg" class="w-100 rounded mb-3" alt="Tropical Garden">
+          <h5>Lush Tropical Gardens</h5>
+          <p>Create a refreshing paradise with premium tropical plants.</p>
         </div>
-        <div class="col-lg-4">
-          <div class="idea-card p-4">
-            <img src="https://media.istockphoto.com/id/609087282/photo/modern-mansion-with-stylish-backyard.jpg?s=612x612&w=0&k=20&c=AYiCOlUZVT-vz0hspd7t4-S2AhTqJ_ZWOkWqCTxZj_k=" class="w-100 rounded mb-3" alt="Minimalist Design">
-            <h5>Modern Minimalist Spaces</h5>
-            <p>Clean lines, neat spaces, and calm green textures.</p>
-          </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="idea-card p-4">
+          <img src="img/lands2.jpeg" class="w-100 rounded mb-3" alt="Minimalist Design">
+          <h5>Modern Minimalist Spaces</h5>
+          <p>Clean lines, neat spaces, and calm green textures.</p>
         </div>
-        <div class="col-lg-4">
-          <div class="idea-card p-4">
-            <img src="https://media.istockphoto.com/id/628462780/photo/beautiful-landscape-design.jpg?s=612x612&w=0&k=20&c=kIJRE3Y2_ph7mgquZ9rXShJodadRIy0HNnpr9m26OG4=" class="w-100 rounded mb-3" alt="Patio Design">
-            <h5>Stone & Wood Patio</h5>
-            <p>A blend of rustic elegance and contemporary charm.</p>
-          </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="idea-card p-4">
+          <img src="img/land3.jpeg" class="w-100 rounded mb-3" alt="Patio Design">
+          <h5>Stone & Wood Patio</h5>
+          <p>A blend of rustic elegance and contemporary charm.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- HOW WE PLAN -->
-  <section id="process" class="py-5 bg-light">
+  <section id="process" class="py-5 bg-light position-relative">
     <div class="container text-center">
       <h2 class="section-title">How We Bring Your Ideas to Reality</h2>
       <div class="row mt-4 g-4">
@@ -362,6 +570,9 @@
         </div>
       </div>
     </div>
+    
+    <!-- Bushes decoration at the bottom -->
+    <div class="bushes-decoration"></div>
   </section>
 
   <!-- TESTIMONIALS -->
@@ -454,9 +665,6 @@
   </div>
 </section>
 
-<!-- Font Awesome for Stars -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <!-- GALLERY -->
   <section id="gallery" class="py-5 bg-light">
     <div class="container">
@@ -464,32 +672,32 @@
       <div class="row g-3">
         <div class="col-md-4">
           <div class="gallery-item">
-            <img src="https://media.istockphoto.com/id/506893946/photo/green-lawn-in-the-backyard.jpg?s=612x612&w=0&k=20&c=1_O_l1MIWCtJxNbrjg0BpEFhX8FZZ26EHrX_K77zRG4=" class="w-100" alt="Project 1">
+            <img src="img/g1.jpeg" class="w-100" alt="Project 1">
           </div>
         </div>
         <div class="col-md-4">
           <div class="gallery-item">
-            <img src="https://media.istockphoto.com/id/1329053260/photo/beautiful-backyard-garden-with-nicely-trimmed-bonsai-bushes-and-trees.jpg?s=612x612&w=0&k=20&c=eZR9UpG62BmqJ3d26egaJLvCj062hTOSl2p-O1Nrdq0=" class="w-100" alt="Project 2">
+            <img src="img/g2.jpeg" class="w-100" alt="Project 2">
           </div>
         </div>
         <div class="col-md-4">
           <div class="gallery-item">
-            <img src="https://media.istockphoto.com/id/528182181/photo/front-yard-landscape-design.jpg?s=612x612&w=0&k=20&c=gKkSfulIX4Dax8zKF92nUyAKRz9A6Q_lW1Nz_70_Bis=" class="w-100" alt="Project 3">
+            <img src="img/g3.jpeg" class="w-100" alt="Project 3">
           </div>
         </div>
         <div class="col-md-4">
           <div class="gallery-item">
-            <img src="https://media.istockphoto.com/id/478414034/photo/beautiful-spring-garden-design.jpg?s=612x612&w=0&k=20&c=lTYMFMfzglKnaMwlYpyCEOP2ER9nnUW0krCTpL71UQY=" class="w-100" alt="Project 4">
+            <img src="img/g4.jpeg" class="w-100" alt="Project 4">
           </div>
         </div>
         <div class="col-md-4">
           <div class="gallery-item">
-            <img src="https://media.istockphoto.com/id/1316298440/photo/landscaping-round-the-lawn-with-trees-and-shrubs-planting.jpg?s=612x612&w=0&k=20&c=OVzPbfJVypstTQyxwOy_cVi1M9YCAaFQsBiKt-Uow5M=" class="w-100" alt="Project 5">
+            <img src="img/g5.jpeg" class="w-100" alt="Project 5">
           </div>
         </div>
         <div class="col-md-4">
           <div class="gallery-item">
-            <img src="https://media.istockphoto.com/id/1385721172/photo/iron-lantern-ground-garden-lighting-of-park-with-crescent-walkway-paved-with-brick-stone.jpg?s=612x612&w=0&k=20&c=74GVfJMSZG126HL1KW2djD2gCqFni77_ftfnD9Qkux4=" class="w-100" alt="Project 6">
+            <img src="img/g6.jpeg" class="w-100" alt="Project 6">
           </div>
         </div>
       </div>
@@ -503,7 +711,7 @@
       <div class="row g-4">
         <div class="col-md-4">
           <div class="blog-card">
-            <img src="https://cdn.shopify.com/s/files/1/0555/8363/7660/files/Urban-plants-landscape.jpg?v=1660037619" class="w-100" alt="Blog 1">
+            <img src="img/blog1.jpeg" class="w-100" alt="Blog 1">
             <div class="p-3">
               <h5>Top 5 Plants for Indian Summers</h5>
               <p class="text-muted small">June 10, 2025</p>
@@ -512,7 +720,7 @@
         </div>
         <div class="col-md-4">
           <div class="blog-card">
-            <img src="https://hips.hearstapps.com/hmg-prod/images/low-maintenance-garden-stylish-and-luxurious-outdoor-room-garden-design-in-london-1615482878.jpg?crop=0.670xw:1.00xh;0.256xw,0&resize=1200:*" class="w-100" alt="Blog 2">
+            <img src="img/blog2.jpeg" class="w-100" alt="Blog 2">
             <div class="p-3">
               <h5>Designing a Low-Maintenance Garden</h5>
               <p class="text-muted small">May 22, 2025</p>
@@ -521,7 +729,7 @@
         </div>
         <div class="col-md-4">
           <div class="blog-card">
-            <img src="https://images-cdn.ubuy.co.in/65e3547d91cb95323437bed1-solar-pathway-lights-outdoor-8-pack.jpg" class="w-100" alt="Blog 3">
+            <img src="img/blog3.jpeg" class="w-100" alt="Blog 3">
             <div class="p-3">
               <h5>Outdoor Lighting: Mood & Safety</h5>
               <p class="text-muted small">April 18, 2025</p>
@@ -575,6 +783,63 @@
       });
     });
   </script>
-
+  
+  <!-- Scroll Animation Script -->
+  <script>
+    // Add animation classes to elements when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all sections that should animate
+      const sections = document.querySelectorAll('section');
+      const cards = document.querySelectorAll('.idea-card, .test-card, .service-card, .blog-card, .gallery-item');
+      
+      // Add animation classes to sections
+      sections.forEach(section => {
+        section.classList.add('animate-on-scroll');
+      });
+      
+      // Add animation classes to cards
+      cards.forEach((card, index) => {
+        card.classList.add('animate-fast');
+        // Add staggered delays
+        if (index % 4 === 0) card.classList.add('delay-1');
+        else if (index % 4 === 1) card.classList.add('delay-2');
+        else if (index % 4 === 2) card.classList.add('delay-3');
+        else card.classList.add('delay-4');
+      });
+      
+      // Function to check if element is in viewport
+      function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
+          rect.bottom >= 0
+        );
+      }
+      
+      // Function to handle scroll events
+      function handleScroll() {
+        // Animate sections
+        sections.forEach(section => {
+          if (isElementInViewport(section)) {
+            section.classList.add('animate');
+          }
+        });
+        
+        // Animate cards
+        cards.forEach(card => {
+          if (isElementInViewport(card)) {
+            card.classList.add('animate');
+          }
+        });
+      }
+      
+      // Listen for scroll events
+      window.addEventListener('scroll', handleScroll);
+      
+      // Trigger once on load in case elements are already in view
+      handleScroll();
+    });
+  </script>
+  
 </body>
 </html>
