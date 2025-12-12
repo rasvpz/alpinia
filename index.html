@@ -75,7 +75,7 @@
 
     /* Navbar */
 .navbar {
-  background: rgba(255, 255, 255, 0.8); /* 80% opacity */
+  background: rgba(255, 255, 255, 1); /* 80% opacity */
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   border-bottom: 4px solid #056651;
   backdrop-filter: blur(6px); /* optional glass effect */
@@ -231,7 +231,7 @@
   /* Background leaf skeleton pattern */
 .ideas-section-bg {
   position: relative;
-  background: #d9e7da;
+  background: #e8faeb;
   overflow: hidden;
 }
 
@@ -266,7 +266,282 @@
   z-index: 0;
   animation: cloudsDrift 20s linear infinite;
 }
+/* SECTION BACKGROUND WITH LEAF PATTERN */
+.service-section {
+  background-color: #f4fff7;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23cce9d6' fill-opacity='0.25'%3E%3Cpath d='M50 20 C70 40, 90 20, 110 40 S150 60, 170 40'/%3E%3Cpath d='M20 120 C40 140, 60 120, 80 140 S120 160, 140 140'/%3E%3Cpath d='M100 80 C120 100, 140 80, 160 100 S200 120, 220 100'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 300px;
+}
 
+/* MODERN SERVICE CARD */
+.service-card-modern {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 35px 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s ease-in-out;
+  border: 1px solid rgba(0,0,0,0.05);
+  backdrop-filter: blur(4px);
+}
+
+.service-card-modern:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* ICON DESIGN */
+.service-icon-modern {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4caf50, #056651);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.service-icon-modern i {
+  font-size: 28px;
+  color: white;
+}
+
+/* HEADINGS */
+.service-card-modern h5 {
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #044f39;
+}
+
+/* TEXT */
+.service-card-modern p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.about-section {
+  background: #ffffff;
+  padding-top: 70px;
+  padding-bottom: 80px;
+}
+
+.about-subtitle {
+  color: #0a713c;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.about-title {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #1b1b1b;
+}
+
+.about-title span {
+  color: #0a713c;
+}
+
+.about-text {
+  margin-top: 15px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+/* Stats Section */
+.about-stat {
+  background: #043b25;
+  padding: 28px;
+  border-radius: 14px;
+  color: white;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.12);
+  transition: 0.3s;
+}
+
+.about-stat:hover {
+  transform: translateY(-6px);
+}
+
+.about-stat h3 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.about-stat p {
+  margin-top: -5px;
+  font-size: 15px;
+  opacity: 0.9;
+}
+.fence-full-bg {
+  position: relative;
+  background-color: #c1fcdd; /* Keep the dark premium green */
+  background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.5'%3E%3C!-- Fence Line --%3E%3Cpath d='M0 500 Q50 460 100 500 T200 500 T300 500 T400 500 T500 500 T600 500' stroke='%23ffffff' stroke-width='8' fill='none'/%3E%3C!-- Fence Posts --%3E%3Crect x='45' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='145' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='245' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='345' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='445' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='545' y='500' width='10' height='80' fill='%23ffffff'/%3E%3C!-- Flowers --%3E%3Ccircle cx='80' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='150' cy='450' r='12' fill='%23ff8a00'/%3E%3Ccircle cx='220' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='300' cy='455' r='14' fill='%23ff8a00'/%3E%3Ccircle cx='380' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='450' cy='450' r='12' fill='%23ff8a00'/%3E%3C!-- Leaves --%3E%3Cpath d='M120 520 C110 500 90 500 80 520 C90 540 110 540 120 520 Z' fill='%2300aa55'/%3E%3Cpath d='M260 520 C250 500 230 500 220 520 C230 540 250 540 260 520 Z' fill='%2300aa55'/%3E%3Cpath d='M400 520 C390 500 370 500 360 520 C370 540 390 540 400 520 Z' fill='%2300aa55'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 600px;
+  background-position: center bottom;
+
+  padding-bottom: 200px; /* Space for fence background */
+}
+
+/* Background Theme */
+.gallery-section {
+  background: #043b25;
+}
+
+/* Section Title */
+.gallery-section .section-title {
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+/* Masonry Grid */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: 250px;
+  gap: 20px;
+}
+
+/* Each Item */
+.masonry-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #1f1f1f;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  border:4px solid #3cff00a2;
+}
+
+/* Featured (bigger top image like your request) */
+.masonry-item.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Some random but aesthetic size variations */
+.masonry-item.tall {
+  grid-row: span 2;
+}
+
+.masonry-item.wide {
+  grid-column: span 2;
+}
+
+/* Images */
+.masonry-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+/* Hover Effect */
+.masonry-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+.services-section {
+  background: #d6ffe8; /* Mint Green */
+}
+
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #033b27;
+}
+
+/* CARD STYLE */
+.service-card {
+  background: #ffffff; 
+  border-radius: 24px;
+  padding: 20px;
+  color: rgb(63, 63, 63);
+  text-align: center;
+  transition: 0.35s ease;
+  overflow: hidden;
+  position: relative;
+  /* border: 2px solid rgba(0, 128, 0, 0.452); */
+}
+
+/* Hover Effect */
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: #033b2781;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+/* Images */
+.service-card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 18px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* Titles */
+.service-card h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #033b27;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* Text */
+.service-card p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.4;
+  text-align: left !important;
+
+}
+
+/* Decorative leaves background */
+.services-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  height: 120px;
+  background-image: url('img/leaves-pattern.svg');
+  background-size: contain;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.btn-wrapper {
+  display: flex;
+  justify-content: flex-end; /* Right-align */
+  margin-top: 15px;
+}
+
+.see-more-btn {
+  background: white; /* Your requested color */
+  color: #0f3d2e;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #0f3d2e;
+  transition: background 0.2s ease;
+}
+
+.see-more-btn:hover {
+  background: #0c2f24;
+}
 @keyframes hillsDrift {
   0% {
     background-position: -300px bottom;
@@ -342,6 +617,13 @@
   text-shadow: 0 4px 15px rgba(0,0,0,0.8);
   animation: fadeInUp 1s ease-in-out;
 }
+.services-section {
+  padding: 80px 0;
+  background-color: #e4f7ea; /* base background */
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b6dfc7' opacity='0.5'%3E%3Cpath d='M50 20 C40 45 40 75 50 100 C60 75 60 45 50 20 Z'/%3E%3Cpath d='M150 40 C135 70 135 120 150 150 C165 120 165 70 150 40 Z'/%3E%3Ccircle cx='100' cy='60' r='12'/%3E%3Ccircle cx='80' cy='140' r='10'/%3E%3Ccircle cx='130' cy='110' r='8'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  background-repeat: repeat;
+}
 
 /* Mobile responsive text */
 @media (max-width: 768px) {
@@ -409,12 +691,12 @@
         </div>
       </div>
 
-      <div class="carousel-item">
+      <!-- <div class="carousel-item">
         <img src="img/img2.jpeg" class="d-block w-100" alt="Modern patio design">
         <div class="carousel-caption-custom">
           <h1>Garden Design & Landscaping Services Right at Your Doorstep</h1>
         </div>
-      </div>
+      </div> -->
 
       <div class="carousel-item">
         <img src="img/img3.jpeg" class="d-block w-100" alt="Elegant outdoor lighting">
@@ -430,12 +712,12 @@
         </div>
       </div>
 
-      <div class="carousel-item">
+      <!-- <div class="carousel-item">
         <img src="img/img5.jpeg" class="d-block w-100" alt="Backyard transformation">
         <div class="carousel-caption-custom">
           <h1>Garden Design & Landscaping Services Right at Your Doorstep</h1>
         </div>
-      </div>
+      </div> -->
 
     </div>
 
@@ -461,85 +743,271 @@
   </section>
 
   <!-- SERVICES SECTION -->
-  <section id="services" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="section-title">Our Services</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="service-card p-4 text-center">
-            <div class="service-icon"><i class="fas fa-leaf"></i></div>
-            <h5>Softscaping</h5>
-            <p>Plant selection, lawn care, flower beds, and seasonal color schemes.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card p-4 text-center">
-            <div class="service-icon"><i class="fas fa-mountain"></i></div>
-            <h5>Hardscaping</h5>
-            <p>Patios, pathways, retaining walls, and decorative stonework.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card p-4 text-center">
-            <div class="service-icon"><i class="fas fa-water"></i></div>
-            <h5>Irrigation Systems</h5>
-            <p>Smart, efficient watering solutions tailored to your landscape.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card p-4 text-center">
-            <div class="service-icon"><i class="fas fa-couch"></i></div>
-            <h5>Outdoor Living</h5>
-            <p>Seating areas, pergolas, fire pits, and outdoor kitchens.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card p-4 text-center">
-            <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
-            <h5>Garden Lighting</h5>
-            <p>Atmospheric and functional lighting for safety and beauty.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card p-4 text-center">
-            <div class="service-icon"><i class="fas fa-tools"></i></div>
-            <h5>Maintenance</h5>
-            <p>Year-round care to keep your garden pristine and thriving.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LANDSCAPING IDEAS -->
-<section id="ideas" class="py-5 ideas-section-bg">
+<section  class="py-5 service-section">
   <div class="container">
-    <h2 class="section-title">Landscaping Ideas</h2>
+    <h2 class="section-title text-center mb-5">Why Us ?</h2>
+
     <div class="row g-4">
-      <div class="col-lg-4">
-        <div class="idea-card p-4">
-          <img src="img/lands1.jpeg" class="w-100 rounded mb-3" alt="Tropical Garden">
-          <h5>Lush Tropical Gardens</h5>
-          <p>Create a refreshing paradise with premium tropical plants.</p>
+
+      <div class="col-md-4">
+        <div class="service-card-modern p-4 text-center">
+          <div class="service-icon-modern">
+            <i class="fas fa-seedling"></i>
+          </div>
+          <h5>Vision Planning</h5>
+          <p>We create a complete, well-structured vision plan tailored to your landscape, ensuring functionality and aesthetic balance.</p>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="idea-card p-4">
-          <img src="img/lands2.jpeg" class="w-100 rounded mb-3" alt="Minimalist Design">
-          <h5>Modern Minimalist Spaces</h5>
-          <p>Clean lines, neat spaces, and calm green textures.</p>
+
+      <div class="col-md-4">
+        <div class="service-card-modern p-4 text-center">
+          <div class="service-icon-modern">
+            <i class="fas fa-drafting-compass"></i>
+          </div>
+          <h5>Innovative Designs</h5>
+          <p>Unique, timeless, and creative designs crafted to reflect the highest standard of beauty and elegance.</p>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="idea-card p-4">
-          <img src="img/land3.jpeg" class="w-100 rounded mb-3" alt="Patio Design">
-          <h5>Stone & Wood Patio</h5>
-          <p>A blend of rustic elegance and contemporary charm.</p>
+
+      <div class="col-md-4">
+        <div class="service-card-modern p-4 text-center">
+          <div class="service-icon-modern">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h5>Constant Tracking</h5>
+          <p>We monitor each stage with precision to ensure a smooth, efficient, and perfectly executed workflow.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service-card-modern p-4 text-center">
+          <div class="service-icon-modern">
+            <i class="fas fa-hammer"></i>
+          </div>
+          <h5>Precision Building</h5>
+          <p>Every construction element is crafted with expert accuracy to deliver a flawless experience.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service-card-modern p-4 text-center">
+          <div class="service-icon-modern">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h5>On-Time Delivery</h5>
+          <p>We execute projects on schedule with a strong commitment to punctuality and excellence.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service-card-modern p-4 text-center">
+          <div class="service-icon-modern">
+            <i class="fas fa-gem"></i>
+          </div>
+          <h5>Premium Finish</h5>
+          <p>Every project is detailed with a luxurious, premium-quality finish that truly stands out.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="about" class="py-5 about-section fence-full-bg">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- LEFT CONTENT -->
+      <div class="col-lg-6 mb-4">
+        <p class="about-subtitle">ABOUT US</p>
+        <h2 class="about-title">Why Choose <span>ALPINIA</span> Landscaping?</h2>
+
+        <p class="about-text">
+          At ALPINIA, we specialize in <strong>premium landscape design and development</strong>
+          that brings beauty, functionality, and harmony to your outdoor spaces.
+          With a passion for creating refreshing environments, we craft landscapes
+          that elevate your lifestyle and enhance your surroundings.
+        </p>
+
+        <p class="about-text">
+          Whether it's a <strong>residential garden, villa, resort, commercial property,
+          or urban outdoor space</strong>, our skilled team blends nature with design
+          excellence to create spaces that inspire relaxation and well-being.
+        </p>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="col-lg-6 text-center">
+        <img src="img/img3.jpeg" class="about-image img-fluid rounded-4 shadow" alt="Landscaping">
+      </div>
+
+    </div>
+
+    <!-- STATS -->
+    <div class="row text-center mt-5 g-4">
+      <div class="col-md-3">
+        <div class="about-stat">
+          <h3 class="counter" data-target="20">0</h3>
+          <p>Years Experience</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="about-stat">
+          <h3 class="counter" data-target="50">0</h3>
+          <p>Expert Professionals</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="about-stat">
+          <h3 class="counter" data-target="350">0</h3>
+          <p>Projects Delivered</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="about-stat">
+          <h3 class="counter" data-target="25">0</h3>
+          <p>Locations Covered</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+  <!-- LANDSCAPING IDEAS -->
+<section id="services" class="py-5 services-section">
+  <div class="container">
+
+    <h2 class="section-title text-center mb-5">Our Landscaping Services</h2>
+
+    <div class="row g-4">
+
+      <!-- Item 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card">
+          <img src="img/img1.jpeg" alt="Landscaping & Gardening">
+          <h5>Landscaping & Gardening</h5>
+          <p>Beautiful outdoor designs with sustainable plant selection.</p>
+              <div class="btn-wrapper">
+              <button class="see-more-btn">See More</button>
+            </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card">
+          <img src="img/g1.jpeg" alt="Villa Gardening">
+          <h5>Villa Gardening</h5>
+          <p>Premium garden setups designed specially for luxury homes.</p>
+                        <div class="btn-wrapper">
+              <button class="see-more-btn">See More</button>
+            </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card">
+          <img src="img/blog3.jpeg" alt="Vertical Garden">
+          <h5>Vertical Garden</h5>
+          <p>Space-saving green walls for indoor and outdoor spaces.</p>
+                        <div class="btn-wrapper">
+              <button class="see-more-btn">See More</button>
+            </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card">
+          <img src="/img/img2.jpeg" alt="Waterfalls">
+          <h5>Cascading Waterfalls & Fountains</h5>
+          <p>Custom water features that create peaceful ambience.</p>
+                        <div class="btn-wrapper">
+              <button class="see-more-btn">See More</button>
+            </div>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card">
+          <img src="img/blog2.jpeg" alt="Rock Garden">
+          <h5>Rock Garden</h5>
+          <p>Natural stone arrangements for aesthetic outdoor appeal.</p>
+                        <div class="btn-wrapper">
+              <button class="see-more-btn">See More</button>
+            </div>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card">
+          <img src="img/g3.jpeg" alt="Indoor Garden">
+          <h5>Indoor Garden</h5>
+          <p>Green interior solutions for homes and commercial spaces.</p>
+                        <div class="btn-wrapper">
+              <button class="see-more-btn">See More</button>
+            </div>
+        </div>
+      </div>
+
+      <!-- Item 7 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card">
+          <img src="img/g5.jpeg" alt="Fish Pond">
+          <h5>Fish Pond</h5>
+          <p>Beautiful ponds with filtration and clean water systems.</p>
+                        <div class="btn-wrapper">
+              <button class="see-more-btn">See More</button>
+            </div>
+        </div>
+      </div>
+
+      <!-- Item 8 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card">
+          <img src="img/lands2.jpeg" alt="Walkway">
+          <h5>Walkway</h5>
+          <p>Stone, tile, or natural pathways for stylish movement.</p>
+                        <div class="btn-wrapper">
+              <button class="see-more-btn">See More</button>
+            </div>
+        </div>
+      </div>
+
+      <!-- Item 9 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card">
+          <img src="img/lands2.jpeg" alt="Gazebo">
+          <h5>Gazebo</h5>
+          <p>Elegant outdoor structures for relaxation and shade.</p>
+                        <div class="btn-wrapper">
+              <button class="see-more-btn">See More</button>
+            </div>
+        </div>
+      </div>
+
+      <!-- Item 10 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card">
+          <img src="img/g6.jpeg" alt="Maintenance">
+          <h5>Maintenance Services</h5>
+          <p>Regular professional upkeep to keep spaces fresh & healthy.</p>
+                        <div class="btn-wrapper">
+              <button class="see-more-btn">See More</button>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 
   <!-- HOW WE PLAN -->
@@ -666,43 +1134,35 @@
 </section>
 
   <!-- GALLERY -->
-  <section id="gallery" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="section-title">Our Work</h2>
-      <div class="row g-3">
-        <div class="col-md-4">
-          <div class="gallery-item">
-            <img src="img/g1.jpeg" class="w-100" alt="Project 1">
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="gallery-item">
-            <img src="img/g2.jpeg" class="w-100" alt="Project 2">
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="gallery-item">
-            <img src="img/g3.jpeg" class="w-100" alt="Project 3">
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="gallery-item">
-            <img src="img/g4.jpeg" class="w-100" alt="Project 4">
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="gallery-item">
-            <img src="img/g5.jpeg" class="w-100" alt="Project 5">
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="gallery-item">
-            <img src="img/g6.jpeg" class="w-100" alt="Project 6">
-          </div>
-        </div>
+<section id="gallery" class="py-5 gallery-section">
+  <div class="container">
+    <h2 class="section-title text-white">Our Work</h2>
+
+    <div class="masonry-grid">
+      <div class="masonry-item featured">
+        <img src="img/g1.jpeg" alt="Featured Project">
+      </div>
+      <div class="masonry-item">
+        <img src="img/g2.jpeg" alt="Project 2">
+      </div>
+      <div class="masonry-item tall">
+        <img src="img/g3.jpeg" alt="Project 3">
+      </div>
+      <div class="masonry-item wide">
+        <img src="img/g4.jpeg" alt="Project 4">
+      </div>
+      <div class="masonry-item">
+        <img src="img/g5.jpeg" alt="Project 5">
+      </div>
+      <div class="masonry-item">
+        <img src="img/g6.jpeg" alt="Project 6">
+      </div>
+            <div class="masonry-item ">
+        <img src="img/g1.jpeg" alt="Featured Project">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- BLOGS (Placeholder) -->
   <section id="blogs" class="py-5">
@@ -840,6 +1300,37 @@
       handleScroll();
     });
   </script>
-  
+  <script>
+  const counters = document.querySelectorAll('.counter');
+  const speed = 120;
+
+  const startCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target + "+";
+        }
+      };
+      updateCount();
+    });
+  };
+
+  let started = false;
+  window.addEventListener("scroll", () => {
+    const sectionPos = document.querySelector("#about").offsetTop - 400;
+    if (!started && window.scrollY >= sectionPos) {
+      startCounters();
+      started = true;
+    }
+  });
+</script>
+
 </body>
 </html>
