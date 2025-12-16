@@ -24,14 +24,43 @@
       background-color: var(--light);
       color: var(--dark-text);
       scroll-behavior: smooth;
+      margin: 0;
+      padding-top: 80px; /* Account for fixed navbar */
     }
+
+    /* === ANIMATION CLASSES === */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .animate-on-scroll.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .animate-fast {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    .animate-fast.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
 
     /* === BANNER === */
     .banner-section {
       position: relative;
       height: 100vh;
       min-height: 400px;
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('/img/pathway.png') center/cover no-repeat;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('img/pathway.png') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -179,6 +208,69 @@
       text-align: center;
     }
 
+    /* === HIGHLIGHT CARD === */
+    .brand-highlight {
+      height: 350px;
+      padding: 35px 30px;
+      border-radius: 20px;
+      position: relative;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
+        linear-gradient(135deg, #0f3d2e, #043b25);
+      color: #ffffff;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      overflow: hidden;
+    }
+    .brand-highlight::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M40 20 C30 50 30 90 40 120 C50 90 50 50 40 20 Z'/%3E%3Cpath d='M120 40 C110 70 110 110 120 140 C130 110 130 70 120 40 Z'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 180px;
+      z-index: 0;
+    }
+    .brand-highlight > * {
+      position: relative;
+      z-index: 1;
+    }
+    .brand-highlight h4 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #f0c75e;
+      letter-spacing: 0.5px;
+    }
+    .brand-points {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px;
+    }
+    .brand-points li {
+      margin-bottom: 12px;
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+    .trust-strip {
+      position: absolute;
+      bottom: 25px;
+      left: 30px;
+      right: 30px;
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.12);
+      padding: 12px 18px;
+      border-radius: 14px;
+      backdrop-filter: blur(6px);
+    }
+    .trust-strip span {
+      font-weight: 600;
+      font-size: 14px;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
     /* === CTA === */
     .cta-section {
       background: var(--primary);
@@ -204,36 +296,36 @@
     .btn-cta:hover {
       background: #dcb13a;
     }
+
+    /* === NAVBAR === */
     .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23056651' stroke-width='3' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-    /* Navbar */
-.navbar {
-  background: rgba(255, 255, 255, 1); /* 80% opacity */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  border-bottom: 4px solid #056651;
-  backdrop-filter: blur(6px); /* optional glass effect */
-}
-
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23056651' stroke-width='3' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+    .navbar {
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-bottom: 4px solid #056651;
+      backdrop-filter: blur(6px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
     .navbar-brand {
       font-size: 28px;
       font-weight: 700;
       color: #f0c75e !important;
       letter-spacing: 1px;
     }
-
     .nav-link {
       color: #056651 !important;
       margin-right: 15px;
       font-weight: 500;
       position: relative;
     }
-
     .nav-link:hover {
       color: #f0c75e !important;
     }
-
     .nav-link::after {
       content: '';
       position: absolute;
@@ -244,168 +336,72 @@
       background: #f0c75e;
       transition: width 0.3s ease;
     }
-
     .nav-link:hover::after {
       width: 100%;
     }
 
-.new-content {
-  margin-top: 30px;
-}
-
-/* Premium Highlight Card */
-.brand-highlight {
-  height: 350px;
-  padding: 35px 30px;
-  border-radius: 20px;
-  position: relative;
-  background:
-    radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
-    linear-gradient(135deg, #0f3d2e, #043b25);
-  color: #ffffff;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-  overflow: hidden;
-}
-
-/* Decorative leaf pattern */
-.brand-highlight::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M40 20 C30 50 30 90 40 120 C50 90 50 50 40 20 Z'/%3E%3Cpath d='M120 40 C110 70 110 110 120 140 C130 110 130 70 120 40 Z'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 180px;
-  z-index: 0;
-}
-
-/* Content layer */
-.brand-highlight > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Title */
-.brand-highlight h4 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 18px;
-  color: #f0c75e;
-  letter-spacing: 0.5px;
-}
-
-/* Points */
-.brand-points {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 30px;
-}
-
-.brand-points li {
-  margin-bottom: 12px;
-  font-size: 15.5px;
-  line-height: 1.6;
-}
-
-/* Trust strip */
-.trust-strip {
-  position: absolute;
-  bottom: 25px;
-  left: 30px;
-  right: 30px;
-  display: flex;
-  justify-content: space-between;
-  background: rgba(255,255,255,0.12);
-  padding: 12px 18px;
-  border-radius: 14px;
-  backdrop-filter: blur(6px);
-}
-
-.trust-strip span {
-  font-weight: 600;
-  font-size: 14px;
-  color: #ffffff;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-    /* Footer */
+    /* === FOOTER === */
     footer {
       background: #0f3d2e;
       color: #fff;
       padding: 40px 0 20px;
     }
-
     footer a {
       color: #f0c75e;
       text-decoration: none;
     }
-
     footer a:hover {
       text-decoration: underline;
     }
 
-    .myBg{
-  position: relative;
-  background-color: #c1fcdd; /* Keep the dark premium green */
-  background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.5'%3E%3C!-- Fence Line --%3E%3Cpath d='M0 500 Q50 460 100 500 T200 500 T300 500 T400 500 T500 500 T600 500' stroke='%23ffffff' stroke-width='8' fill='none'/%3E%3C!-- Fence Posts --%3E%3Crect x='45' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='145' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='245' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='345' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='445' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='545' y='500' width='10' height='80' fill='%23ffffff'/%3E%3C!-- Flowers --%3E%3Ccircle cx='80' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='150' cy='450' r='12' fill='%23ff8a00'/%3E%3Ccircle cx='220' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='300' cy='455' r='14' fill='%23ff8a00'/%3E%3Ccircle cx='380' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='450' cy='450' r='12' fill='%23ff8a00'/%3E%3C!-- Leaves --%3E%3Cpath d='M120 520 C110 500 90 500 80 520 C90 540 110 540 120 520 Z' fill='%2300aa55'/%3E%3Cpath d='M260 520 C250 500 230 500 220 520 C230 540 250 540 260 520 Z' fill='%2300aa55'/%3E%3Cpath d='M400 520 C390 500 370 500 360 520 C370 540 390 540 400 520 Z' fill='%2300aa55'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 600px;
-  background-position: center bottom;
-  padding-bottom: 200px; /* Space for fence background */
+    .myBg {
+      position: relative;
+      background-color: #c1fcdd;
+      background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.5'%3E%3Cpath d='M0 500 Q50 460 100 500 T200 500 T300 500 T400 500 T500 500 T600 500' stroke='%23ffffff' stroke-width='8' fill='none'/%3E%3Crect x='45' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='145' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='245' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='345' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='445' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='545' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Ccircle cx='80' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='150' cy='450' r='12' fill='%23ff8a00'/%3E%3Ccircle cx='220' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='300' cy='455' r='14' fill='%23ff8a00'/%3E%3Ccircle cx='380' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='450' cy='450' r='12' fill='%23ff8a00'/%3E%3Cpath d='M120 520 C110 500 90 500 80 520 C90 540 110 540 120 520 Z' fill='%2300aa55'/%3E%3Cpath d='M260 520 C250 500 230 500 220 520 C230 540 250 540 260 520 Z' fill='%2300aa55'/%3E%3Cpath d='M400 520 C390 500 370 500 360 520 C370 540 390 540 400 520 Z' fill='%2300aa55'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 600px;
+      background-position: center bottom;
+      padding-bottom: 200px;
     }
+
     /* === RESPONSIVE === */
     @media (max-width: 768px) {
-      .banner-section {
-        height: 50vh;
-      }
-      .value-card {
-        padding: 22px 15px;
-      }
-      .service-item {
-        height: 180px;
-      }
+      body { padding-top: 70px; }
+      .banner-section { height: 60vh; }
+      .value-card { padding: 22px 15px; }
+      .service-item { height: 180px; }
+      .brand-highlight { height: auto; min-height: 300px; }
     }
-
-    @media (max-width: 600px) {
-      .banner-section {
-        height: 60vh;
-      }
-
-    }
-
-
     @media (max-width: 576px) {
-      .section-title {
-        font-size: 1.8rem;
-      }
-      .service-label {
-        font-size: 0.9rem;
-        padding: 10px 8px;
-      }
+      .section-title { font-size: 1.8rem; }
+      .service-label { font-size: 0.9rem; padding: 10px 8px; }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
     <div class="container">
-      <a class="navbar-brand" href="#home"><img src="img/logo.png" alt="Logo" ></a>
+      <a class="navbar-brand" href="#home"><img src="img/logo.png" alt="Logo"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="#blogs">Blogs</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#blogs">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
+
   <!-- Hero Banner -->
-  <section class="banner-section">
+  <section class="banner-section animate-on-scroll">
     <div class="container">
       <div class="banner-content">
         <h1>About Alfemia Greenings</h1>
@@ -416,188 +412,105 @@
   </section>
 
   <!-- Who We Are -->
-  <section class="py-5 myBg">
+  <section class="py-5 myBg animate-on-scroll">
     <div class="container">
-      <h2 class="section-title">Who We Are</h2>
-      <p class="section-subtitle">
-        With over<strong> 20 years of experience</strong> , Alfemia Greenings is your trusted partner in premium landscaping and garden design.
+      <h2 class="section-title animate-fast delay-1">Who We Are</h2>
+      <p class="section-subtitle animate-fast delay-2">
+        With over <strong>20 years of experience</strong>, Alfemia Greenings is your trusted partner in premium landscaping and garden design.
       </p>
       <div class="row align-items-center">
         <div class="col-lg-6 mb-4 mb-lg-0">
           <div class="about-content">
-            <p>
-              Alfemia Greenings specializes in transforming ordinary spaces <strong> into extraordinary outdoor sanctuaries</strong>. From simple backyards to grand villa gardens, we blend nature, artistry, and engineering to craft spaces that <strong>inspire relaxation, joy, and connection.</strong>
+            <p class="animate-fast delay-3">
+              Alfemia Greenings specializes in transforming ordinary spaces <strong>into extraordinary outdoor sanctuaries</strong>. From simple backyards to grand villa gardens, we blend nature, artistry, and engineering to craft spaces that <strong>inspire relaxation, joy, and connection.</strong>
             </p>
-            <p>
-             <strong>Our expertise spans a complete range of landscaping solutions:</strong> softscaping, hardscaping, outdoor seating, garden lighting, plantation management, irrigation systems, and full-service maintenance.
+            <p class="animate-fast delay-4">
+              <strong>Our expertise spans a complete range of landscaping solutions:</strong> softscaping, hardscaping, outdoor seating, garden lighting, plantation management, irrigation systems, and full-service maintenance.
             </p>
-            <p>
+            <p class="animate-fast delay-5">
               With a skilled team of designers, engineers, and technicians, we ensure every project reflects excellence, precision, and aesthetic harmony — whether you're in a bustling city or serene suburb.
             </p>
           </div>
-          <div class="new-content">
-
-            <div class="brand-highlight">
-  <h4>Why Alfemia Greenings</h4>
-
-  <ul class="brand-points">
-    <li>✔ 20+ Years of Proven Landscaping Excellence</li>
-    <li>✔ Bespoke Garden & Outdoor Living Designs</li>
-    <li>✔ Premium Materials & Sustainable Practices</li>
-    <li>✔ End-to-End Execution & Maintenance</li>
-  </ul>
-
-  <div class="trust-strip">
-    <span>Design</span>
-    <span>Build</span>
-    <span>Maintain</span>
-  </div>
-</div>
-
+          <div class="new-content mt-4">
+            <div class="brand-highlight animate-fast delay-5">
+              <h4>Why Alfemia Greenings</h4>
+              <ul class="brand-points">
+                <li>✔ 20+ Years of Proven Landscaping Excellence</li>
+                <li>✔ Bespoke Garden & Outdoor Living Designs</li>
+                <li>✔ Premium Materials & Sustainable Practices</li>
+                <li>✔ End-to-End Execution & Maintenance</li>
+              </ul>
+              <div class="trust-strip">
+                <span>Design</span>
+                <span>Build</span>
+                <span>Maintain</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-lg-6">
-          <img src="/img/img4old.jpeg" alt="Alfemia Greenings Team" class="img-fluid about-image">
+        <div class="col-lg-6 text-center">
+          <img src="img/img4old.jpeg" alt="Alfemia Greenings Team" class="img-fluid about-image animate-fast delay-3">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Why Choose Us -->
-  <section class="values-section">
+  <section class="values-section animate-on-scroll">
     <div class="container">
-      <h2 class="section-title">Why Choose Alfemia Greenings?</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title animate-fast delay-1">Why Choose Alfemia Greenings?</h2>
+      <p class="section-subtitle animate-fast delay-2">
         We don’t just landscape — we envision, create, and nurture spaces that stand the test of time.
       </p>
       <div class="row g-4">
-        <div class="col-md-4">
-          <div class="value-card">
-            <div class="value-icon"><i class="fas fa-binoculars"></i></div>
-            <h5>Vision Planning</h5>
-            <p>We create the best possible plan for your space with meticulous attention to detail.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="value-card">
-            <div class="value-icon"><i class="fas fa-paint-brush"></i></div>
-            <h5>Innovative Designs</h5>
-            <p>Creative, elegant spaces that reflect timeless beauty and functionality.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="value-card">
-            <div class="value-icon"><i class="fas fa-chart-line"></i></div>
-            <h5>Constant Tracking</h5>
-            <p>Every stage is monitored for seamless execution and quality assurance.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="value-card">
-            <div class="value-icon"><i class="fas fa-tools"></i></div>
-            <h5>Precision Building</h5>
-            <p>Flawless craftsmanship in every brick, plant, and pathway.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="value-card">
-            <div class="value-icon"><i class="fas fa-clock"></i></div>
-            <h5>On Time Delivery</h5>
-            <p>We honor deadlines with unwavering commitment to punctuality.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="value-card">
-            <div class="value-icon"><i class="fas fa-crown"></i></div>
-            <h5>Premium Finish</h5>
-            <p>Every project is completed to your delight — with luxury in every detail.</p>
-          </div>
-        </div>
+        <!-- Cards will be animated via JS below -->
+        <div class="col-md-4"><div class="value-card"><div class="value-icon"><i class="fas fa-binoculars"></i></div><h5>Vision Planning</h5><p>We create the best possible plan for your space with meticulous attention to detail.</p></div></div>
+        <div class="col-md-4"><div class="value-card"><div class="value-icon"><i class="fas fa-paint-brush"></i></div><h5>Innovative Designs</h5><p>Creative, elegant spaces that reflect timeless beauty and functionality.</p></div></div>
+        <div class="col-md-4"><div class="value-card"><div class="value-icon"><i class="fas fa-chart-line"></i></div><h5>Constant Tracking</h5><p>Every stage is monitored for seamless execution and quality assurance.</p></div></div>
+        <div class="col-md-4"><div class="value-card"><div class="value-icon"><i class="fas fa-tools"></i></div><h5>Precision Building</h5><p>Flawless craftsmanship in every brick, plant, and pathway.</p></div></div>
+        <div class="col-md-4"><div class="value-card"><div class="value-icon"><i class="fas fa-clock"></i></div><h5>On Time Delivery</h5><p>We honor deadlines with unwavering commitment to punctuality.</p></div></div>
+        <div class="col-md-4"><div class="value-card"><div class="value-icon"><i class="fas fa-crown"></i></div><h5>Premium Finish</h5><p>Every project is completed to your delight — with luxury in every detail.</p></div></div>
       </div>
     </div>
   </section>
 
   <!-- Our Services -->
-  <section class="services-showcase">
+  <section class="services-showcase animate-on-scroll">
     <div class="container">
-      <h2 class="section-title">Our Landscaping Services</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title animate-fast delay-1">Our Landscaping Services</h2>
+      <p class="section-subtitle animate-fast delay-2">
         Explore our portfolio of transformative outdoor solutions.
       </p>
       <div class="row">
-        <!-- Replace image URLs with your actual project photos -->
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item">
-            <img src="/img/lands2.jpeg" alt="Landscaping & Gardening">
-            <div class="service-label">Landscaping & Gardening</div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item">
-            <img src="/img/lands1.jpeg" alt="Villa Landscaping">
-            <div class="service-label">Villa Landscaping</div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item">
-            <img src="/img/land3.jpeg" alt="Vertical Garden">
-            <div class="service-label">Vertical Garden</div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item">
-            <img src="/img/img5.jpeg" alt="Cascading Waterfalls">
-            <div class="service-label">Waterfalls & Fountains</div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item">
-            <img src="/img/img4.jpg" alt="Rock Garden">
-            <div class="service-label">Rock Garden</div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item">
-            <img src="/img/img3.jpeg" alt="Indoor Garden">
-            <div class="service-label">Indoor Garden</div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item">
-            <img src="/img/img2.jpeg" alt="Japanese Garden">
-            <div class="service-label">Japanese Garden</div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item">
-            <img src="/img/img2.jpeg" alt="Fish Pond">
-            <div class="service-label">Fish Pond</div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item">
-            <img src="/img/img1.jpeg" alt="Walkway & Gazebo">
-            <div class="service-label">Walkway & Gazebo</div>
-          </div>
-        </div>
+        <!-- Service items will be animated via JS -->
+        <div class="col-lg-4 col-md-6"><div class="service-item"><img src="img/lands2.jpeg" alt="Landscaping & Gardening"><div class="service-label">Landscaping & Gardening</div></div></div>
+        <div class="col-lg-4 col-md-6"><div class="service-item"><img src="img/lands1.jpeg" alt="Villa Landscaping"><div class="service-label">Villa Landscaping</div></div></div>
+        <div class="col-lg-4 col-md-6"><div class="service-item"><img src="img/land3.jpeg" alt="Vertical Garden"><div class="service-label">Vertical Garden</div></div></div>
+        <div class="col-lg-4 col-md-6"><div class="service-item"><img src="img/img5.jpeg" alt="Cascading Waterfalls"><div class="service-label">Waterfalls & Fountains</div></div></div>
+        <div class="col-lg-4 col-md-6"><div class="service-item"><img src="img/img4.jpg" alt="Rock Garden"><div class="service-label">Rock Garden</div></div></div>
+        <div class="col-lg-4 col-md-6"><div class="service-item"><img src="img/img3.jpeg" alt="Indoor Garden"><div class="service-label">Indoor Garden</div></div></div>
+        <div class="col-lg-4 col-md-6"><div class="service-item"><img src="img/img2.jpeg" alt="Japanese Garden"><div class="service-label">Japanese Garden</div></div></div>
+        <div class="col-lg-4 col-md-6"><div class="service-item"><img src="img/img2.jpeg" alt="Fish Pond"><div class="service-label">Fish Pond</div></div></div>
+        <div class="col-lg-4 col-md-6"><div class="service-item"><img src="img/img1.jpeg" alt="Walkway & Gazebo"><div class="service-label">Walkway & Gazebo</div></div></div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section" id="contact">
+  <section class="cta-section animate-on-scroll" id="contact">
     <div class="container">
-      <h2>Ready to Transform Your Outdoor Space?</h2>
-      <p>Get a free consultation and let our experts bring your dream garden to life.</p>
-      <a href="tel:+919876543210" class="btn-cta">Call Us Today</a>
+      <h2 class="animate-fast delay-1">Ready to Transform Your Outdoor Space?</h2>
+      <p class="animate-fast delay-2">Get a free consultation and let our experts bring your dream garden to life.</p>
+      <a href="tel:+919876543210" class="btn-cta animate-fast delay-3">Call Us Today</a>
     </div>
   </section>
 
- <footer id="contact">
+  <!-- FOOTER -->
+  <footer>
     <div class="container">
       <div class="row">
         <div class="col-md-6 mb-4 mb-md-0">
-          <h4 class="mb-3">ALPINIA Landscaping Services</h4>
+          <h4 class="mb-3">Alfemia Greenings</h4>
           <p>Bringing nature closer to your home with elegance, creativity, and decades of trusted expertise.</p>
           <p><i class="fas fa-envelope me-2"></i> info@alpiniagreenings.com</p>
           <p><i class="fas fa-phone me-2"></i> +91 974 5501 666</p>
@@ -605,122 +518,74 @@
         <div class="col-md-6">
           <h5 class="mb-3">Quick Links</h5>
           <ul class="list-unstyled">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#blogs">Blogs</a></li>
           </ul>
         </div>
       </div>
       <hr class="my-4" style="background: #f0c75e; height: 1px; border: 0;" />
-      <p class="text-center mb-0">© 2025 ALPINIA. All Rights Reserved.</p>
+      <p class="text-center mb-0">© 2025 Alfemia Greenings. All Rights Reserved.</p>
     </div>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Smooth Scroll (optional enhancement) -->
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
-  
   <!-- Scroll Animation Script -->
   <script>
-    // Add animation classes to elements when they come into view
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get all sections that should animate
-      const sections = document.querySelectorAll('section');
-      const cards = document.querySelectorAll('.idea-card, .test-card, .service-card, .blog-card, .gallery-item');
-      
-      // Add animation classes to sections
-      sections.forEach(section => {
-        section.classList.add('animate-on-scroll');
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add base animation classes
+      document.querySelectorAll('.value-card, .service-item').forEach(el => {
+        el.classList.add('animate-fast');
       });
-      
-      // Add animation classes to cards
-      cards.forEach((card, index) => {
-        card.classList.add('animate-fast');
-        // Add staggered delays
-        if (index % 4 === 0) card.classList.add('delay-1');
-        else if (index % 4 === 1) card.classList.add('delay-2');
-        else if (index % 4 === 2) card.classList.add('delay-3');
-        else card.classList.add('delay-4');
-      });
-      
+
       // Function to check if element is in viewport
-      function isElementInViewport(el) {
+      function isInViewport(el) {
         const rect = el.getBoundingClientRect();
         return (
-          rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
+          rect.top <= window.innerHeight * 0.9 &&
           rect.bottom >= 0
         );
       }
-      
-      // Function to handle scroll events
+
+      // Handle scroll
       function handleScroll() {
-        // Animate sections
-        sections.forEach(section => {
-          if (isElementInViewport(section)) {
+        // Animate main sections
+        document.querySelectorAll('section').forEach((section, i) => {
+          if (isInViewport(section) && !section.classList.contains('animate')) {
             section.classList.add('animate');
           }
         });
-        
-        // Animate cards
-        cards.forEach(card => {
-          if (isElementInViewport(card)) {
-            card.classList.add('animate');
+
+        // Animate fast elements (cards, text, etc.)
+        document.querySelectorAll('.animate-fast').forEach((el, i) => {
+          if (isInViewport(el) && !el.classList.contains('animate')) {
+            // Add staggered delay
+            const delayClass = 'delay-' + ((i % 4) + 1);
+            el.classList.add(delayClass);
+            el.classList.add('animate');
           }
         });
       }
-      
-      // Listen for scroll events
-      window.addEventListener('scroll', handleScroll);
-      
-      // Trigger once on load in case elements are already in view
+
+      // Initial check (in case content is already visible)
       handleScroll();
+
+      // Listen to scroll
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
     });
   </script>
-  <script>
-  const counters = document.querySelectorAll('.counter');
-  const speed = 120;
-
-  const startCounters = () => {
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute("data-target");
-        const count = +counter.innerText;
-        const increment = target / speed;
-
-        if (count < target) {
-          counter.innerText = Math.ceil(count + increment);
-          setTimeout(updateCount, 20);
-        } else {
-          counter.innerText = target + "+";
-        }
-      };
-      updateCount();
-    });
-  };
-
-  let started = false;
-  window.addEventListener("scroll", () => {
-    const sectionPos = document.querySelector("#about").offsetTop - 400;
-    if (!started && window.scrollY >= sectionPos) {
-      startCounters();
-      started = true;
-    }
-  });
-</script>
-  <!-- Optional: Bootstrap JS (for responsiveness only) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
