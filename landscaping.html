@@ -369,6 +369,33 @@
         padding: 120px 0 80px;
       }
     }
+
+    /* Desktop & Large Screens */
+@media (min-width: 992px) {
+  .modal-responsive {
+    max-width: 700px;
+  }
+}
+
+/* Mobile – Fullscreen Modal */
+@media (max-width: 767px) {
+  .modal-responsive {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .modal-responsive .modal-content {
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .modal-responsive img {
+    height: 55vh;
+    object-fit: cover;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -416,23 +443,23 @@
           </div>
         </div>
         <div class="col-lg-6 animate-fast delay-2 " style="border-radius: 50px; border-left: 8px solid #0f3d2ec2;">
-          <h1 class="section-subtitle">Crafting Nature-Inspired Outdoor Spaces Since 2005</h1>
-          <p>At GreenScape, we believe every outdoor area holds untapped potential. With nearly two decades of expertise, our team of certified horticulturists and landscape architects transforms ordinary yards into sustainable, breathtaking retreats that harmonize beauty and ecology.</p>
-          <p>Our passion for native plants, water-wise design, and artisanal craftsmanship ensures each project reflects your vision while respecting the local environment.</p>
+          <h1 class="section-subtitle">Crafting Nature-Inspired Landscape & Gardening Since 2005</h1>
+          <p>At GreenScape, we see every outdoor space as an opportunity to cultivate beauty, balance, and purpose. With nearly two decades of hands-on experience in landscaping and garden development, our team of skilled designers and horticulture specialists transforms ordinary plots into vibrant, well-planned green environments.</p>
+          <p>Our commitment to thoughtful garden design, healthy plant selection, efficient irrigation, and quality craftsmanship ensures that every project reflects your lifestyle while enhancing the natural character of the land. From intimate home gardens to expansive landscapes.</p>
                                 <div class="col-lg-12 mb-12 mb-lg-0 animate-fast delay-3">
-                    <h3 class="section-title mb-4">About GreenScape</h3>
+                    <h3 class="section-subtitle mb-4">About GreenScape</h3>
                     <p class="text-muted mb-4">With over 15 years of experience in the landscaping industry, GreenScape has been transforming outdoor spaces into beautiful, functional gardens that bring joy to our clients.</p>
                     <div class="row g-4">
                         <div class="col-md-6 animate-fast delay-4">
                             <div class="feature-icon">
-                                <i class="fas fa-leaf"></i>
+                                <i class="fas fa-leaf text-success"></i>
                             </div>
                             <h5>Sustainable Practices</h5>
                             <p class="text-muted">We use eco-friendly materials and native plants to create sustainable landscapes.</p>
                         </div>
                         <div class="col-md-6 animate-fast delay-5">
                             <div class="feature-icon">
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star text-success"></i>
                             </div>
                             <h5>Quality Guarantee</h5>
                             <p class="text-muted">We stand behind our work with a 100% satisfaction guarantee.</p>
@@ -504,37 +531,61 @@
       <p class="text-center mb-5 text-muted animate-fast delay-1">Inspiration from our latest transformations</p>
       <div class="row g-4">
         <div class="col-md-6 col-lg-4 animate-fast">
-          <div class="project-card">
+          <div class="project-card"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Modern Garden"
+            data-img="img/bamboo-zen-garden.png">
             <img src="img/bamboo-zen-garden.png" class="project-img" alt="Modern Zen Garden">
-            <div class="project-overlay">Modern Zen Garden</div>
+            <div class="project-overlay">Modern Garden</div>
           </div>
         </div>
         <div class="col-md-6 col-lg-4 animate-fast delay-1">
-          <div class="project-card">
+          <div class="project-card"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Modern Garden"
+            data-img="img/cottage-garden.jpg">
             <img src="img/cottage-garden.jpg" class="project-img" alt="English Cottage Garden">
             <div class="project-overlay">Cottage Garden</div>
           </div>
         </div>
         <div class="col-md-6 col-lg-4 animate-fast delay-2">
-          <div class="project-card">
+                    <div class="project-card"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Modern Garden"
+            data-img="img/landscappimg.jpg">
             <img src="img/landscappimg.jpg" class="project-img" alt="Desert Xeriscape">
             <div class="project-overlay">Land Scapping</div>
           </div>
         </div>
         <div class="col-md-6 col-lg-4 animate-fast delay-3">
-          <div class="project-card">
-            <img src="img/officeLandScapping.jpg" class="project-img" alt="Native Wildflower Meadow">
+                    <div class="project-card"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Modern Garden"
+            data-img="img/landscappimg.jpg">
+            <img src="img/landscappimg.jpg" class="project-img" alt="Native Wildflower Meadow">
             <div class="project-overlay">Office Land Scapping</div>
           </div>
         </div>
         <div class="col-md-6 col-lg-4 animate-fast delay-4">
-          <div class="project-card">
+                    <div class="project-card"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Modern Garden"
+            data-img="img/school.jpg">
             <img src="img/school.jpg" class="project-img" alt="Japanese Tea Garden">
             <div class="project-overlay">School Garden</div>
           </div>
         </div>
         <div class="col-md-6 col-lg-4 animate-fast delay-5">
-          <div class="project-card">
+                    <div class="project-card"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Modern Garden"
+            data-img="img/landscapping3.jpg">
             <img src="img/landscapping3.jpg" class="project-img" alt="Edible Landscape">
             <div class="project-overlay">Big Landscapes</div>
           </div>
@@ -542,6 +593,27 @@
       </div>
     </div>
   </section>
+
+
+<div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-responsive">
+    <div class="modal-content">
+      <button type="button" class="btn-close ms-auto m-3" data-bs-dismiss="modal"></button>
+
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="" alt="" class="img-fluid w-100">
+        <div class="p-4">
+          <h4 id="modalTitle" class="fw-bold"></h4>
+          <p class="text-muted mt-2">
+            Premium landscaping design crafted with precision, aesthetics, and sustainability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
   <section class="cta-section animate-on-scroll" id="contact">
     <div class="container">
@@ -686,6 +758,21 @@
       });
     });
   </script>
+
+  <script>
+  const projectModal = document.getElementById('projectModal');
+
+  projectModal.addEventListener('show.bs.modal', function (event) {
+    const trigger = event.relatedTarget;
+
+    const title = trigger.getAttribute('data-title');
+    const img = trigger.getAttribute('data-img');
+
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalImage').src = img;
+  });
+</script>
+
 </body>
 </html>
 
