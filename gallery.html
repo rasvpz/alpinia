@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALPINIA – Premium Landscaping Experts</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7fdf8;
+      color: #2d2d2d;
+      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Scroll animation classes */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    .animate-on-scroll.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .animate-fast {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    
+    .animate-fast.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23056651' stroke-width='3' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-bottom: 4px solid #056651;
+      backdrop-filter: blur(6px);
+    }
+
+    .navbar-brand {
+      font-size: 28px;
+      font-weight: 700;
+      color: #f0c75e !important;
+      letter-spacing: 1px;
+    }
+
+    .nav-link {
+      color: #056651 !important;
+      margin-right: 15px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: #f0c75e !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #f0c75e;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #0f3d2e;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #f0c75e;
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+
+    /* Cards */
+    .service-card {
+      background: #ffffff;
+      border-radius: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: all 0.35s ease;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .service-card img{
+      background: #ffffff;
+      border-radius: 25px;
+      /* box-shadow: 3px 3px 3px rgba(0,0,0,0.7); */
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .service-card img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f3d2e;
+      color: #fff;
+      padding: 40px 0 20px;
+    }
+
+    footer a {
+      color: #f0c75e;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Smooth Scroll Offset */
+    html {
+      scroll-padding-top: 80px;
+    }
+
+    .banner {
+      background-color: #0f3d2e;
+    }
+
+    .text-white {
+      color: #f7fdf8;
+    }
+
+    /* SERVICES SECTION BACKGROUND */
+    .services-section {
+      background-color: #f4fff7;
+      background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23cce9d6' fill-opacity='0.25'%3E%3Cpath d='M50 20 C70 40, 90 20, 110 40 S150 60, 170 40'/%3E%3Cpath d='M20 120 C40 140, 60 120, 80 140 S120 160, 140 140'/%3E%3Cpath d='M100 80 C120 100, 140 80, 160 100 S200 120, 220 100'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 300px;
+    }
+
+    /* Carousel Styles */
+
+.carousel{
+    height: 100vh;
+}
+
+.carousel-item img {
+  height: 100vh;
+  object-fit: cover;
+}
+    .hero-caption {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .hero-caption h3 {
+      font-size: clamp(1.8rem, 4vw, 3.5rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+      text-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.6),
+        0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      #demo {
+        margin-top: 80px;
+        min-height: 300px !important;
+        height: 300px;
+      }
+
+      .respo {
+        height: 300px !important;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .navbar-brand img {
+        width: 190px;
+        height: 37px;
+      }
+    }
+
+
+    .modal.fade .modal-dialog {
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1);
+}
+
+    @media (max-width: 768px) {
+      #demo {
+        margin-top: 80px;
+        min-height: 300px !important;
+        height: 300px;
+      }
+
+      .respo {
+        height: 300px !important;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .navbar-brand img {
+        width: 190px;
+        height: 37px;
+      }
+    }
+    @media (min-width: 992px) {
+  .modal-lg {
+    max-width: 720px;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home"><img src="img/logo.png" alt="Logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#blogs">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carousel -->
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/bamboo-zen-garden.png" alt="Chicago" class="d-block respo w-100">
+        <div class="carousel-caption hero-caption">
+          <h3>Garden Design & Landscaping Services</h3>
+        </div> 
+      </div>
+      <div class="carousel-item">
+        <img src="https://as2.ftcdn.net/v2/jpg/07/16/31/93/1000_F_716319313_0tJYjEtHAWVjjDsiAPBNz9uN7YSf6xCm.jpg" alt="Chicago" class="d-block respo w-100">
+        <div class="carousel-caption hero-caption">
+          <h3>Villa Gardening Services</h3>
+        </div> 
+      </div>
+      <div class="carousel-item">
+        <img src="https://as1.ftcdn.net/v2/jpg/16/97/13/00/1000_F_1697130033_n4mHSTEPIpBTrMhlifyO3VXS9B0gYjHe.jpg" alt="New York" class="d-block respo w-100">
+        <div class="carousel-caption hero-caption">
+          <h3>Vertical Gardening indoor & outdoor</h3>
+        </div>  
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-5 banner">
+    <div class="container">
+      <h2 class="section-title text-white">Crafting Beautiful Outdoor Spaces</h2>
+      <p class="text-center w-75 mx-auto fs-5 text-white">
+        With over <span class="highlight">20 years of experience</span>, ALPINIA brings premium garden design and landscaping services right to your doorstep. From transforming simple backyards into lush green retreats to building elegant outdoor structures, we help turn your dream outdoor space into a living reality.
+      </p>
+    </div>
+  </section>
+
+<section id="buttons" class="py-5">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+
+      <a href="#Landscaping" class="btn btn-success px-4 py-2 rounded-pill">Landscapes</a>
+      <a href="#villaGardening" class="btn btn-success px-4 py-2 rounded-pill">Villa Gardening</a>
+      <a href="#verticalGarden" class="btn btn-success px-4 py-2 rounded-pill">Vertical Garden</a>
+      <a href="#Fountains" class="btn btn-success px-4 py-2 rounded-pill">Fountains</a>
+      <a href="#rockGarden" class="btn btn-success px-4 py-2 rounded-pill">Rock Garden</a>
+      <a href="#indoorGarden" class="btn btn-success px-4 py-2 rounded-pill">Indoor Garden</a>
+      <a href="#fishPond" class="btn btn-success px-4 py-2 rounded-pill">Fish Pond</a>
+      <a href="#walkway" class="btn btn-success px-4 py-2 rounded-pill">Walkway</a>
+      <a href="#gazebo" class="btn btn-success px-4 py-2 rounded-pill">Gazebo</a>
+      <a href="#maintenanceServices" class="btn btn-success px-4 py-2 rounded-pill">Maintenance Services</a>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="py-5 services-section">
+    <div class="container" id="Landscaping">
+      <h2 class="section-title text-center mb-5">Our Landscaping Services</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Landscaping & Gardening"
+            data-img="img/bamboo-zen-garden.png"
+            data-description="Beautiful outdoor designs with sustainable plant selection."
+          >
+            <img src="img/bamboo-zen-garden.png" alt="Landscaping & Gardening">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-1"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Cottage Garden"
+            data-img="img/cottage-garden.jpg"
+            data-description="Beautiful cottage designs with sustainable plant selection."
+          >
+            <img src="img/cottage-garden.jpg" alt="Cottage Garden">         
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-2"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Land Scapping"
+            data-img="img/landscappimg.jpg"
+            data-description="Beautiful Land Scapping designs with sustainable plant selection."
+          >
+            <img src="img/landscappimg.jpg" alt="Vertical Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-3"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Office Land Scapping"
+            data-img="http://127.0.0.1:5500/img/officeLandScapping.jpg"
+            data-description="Beautiful cottage designs with sustainable plant selection."
+            >
+            <img src="http://127.0.0.1:5500/img/officeLandScapping.jpg" alt="Waterfalls">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-4"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="School Garden"
+            data-img="http://127.0.0.1:5500/img/school.jpg"
+            data-description="Beautiful School Garden with sustainable plant selection."
+          >
+            <img src="http://127.0.0.1:5500/img/school.jpg" alt="Rock Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-5"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Big Land Scapping"
+            data-img="http://127.0.0.1:5500/img/landscapping3.jpg"
+            data-description="Beautiful big land scapping sustainable plant selection."
+          >
+            <img src="http://127.0.0.1:5500/img/landscapping3.jpg" alt="Indoor Garden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-5 services-section">
+    <div class="container" id="villaGardening">
+      <h2 class="section-title text-center mb-5">Villa Gardening</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Contemporary grass lawn"
+            data-img="https://as2.ftcdn.net/v2/jpg/07/16/31/93/1000_F_716319313_0tJYjEtHAWVjjDsiAPBNz9uN7YSf6xCm.jpg"
+            data-description="Contemporary grass lawn designs with sustainable plant selection."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/07/16/31/93/1000_F_716319313_0tJYjEtHAWVjjDsiAPBNz9uN7YSf6xCm.jpg" alt="Landscaping & Gardening">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-1"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Cottage Garden"
+            data-img="https://as2.ftcdn.net/v2/jpg/03/27/87/85/1000_F_327878529_hizb5i4Iw3jvKMC1Ex7HxUA3wdvcjKKH.jpg"
+            data-description="Beautiful cottage designs with sustainable plant selection."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/03/27/87/85/1000_F_327878529_hizb5i4Iw3jvKMC1Ex7HxUA3wdvcjKKH.jpg" alt="Cottage Garden">         
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-2"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Exterior design of villa"
+            data-img="https://as2.ftcdn.net/v2/jpg/03/70/64/43/1000_F_370644367_dMl3a9o85ebGmF21IMHyEsDF4EQglXhF.jpg"
+            data-description="Beautiful Exterior design of villa designs with sustainable plant selection."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/03/70/64/43/1000_F_370644367_dMl3a9o85ebGmF21IMHyEsDF4EQglXhF.jpg" alt="Vertical Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-3"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Design surrounded by garden"
+            data-img="https://as1.ftcdn.net/v2/jpg/01/62/82/16/1000_F_162821626_Cm9z4jrADKYUzGLpFnhOalyLsWCAGvTI.jpg"
+            data-description="Beautiful Design surrounded by garden with sustainable plant selection."
+            >
+            <img src="https://as1.ftcdn.net/v2/jpg/01/62/82/16/1000_F_162821626_Cm9z4jrADKYUzGLpFnhOalyLsWCAGvTI.jpg" alt="Waterfalls">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-4"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="School Garden"
+            data-img="https://as1.ftcdn.net/v2/jpg/17/17/66/86/1000_F_1717668646_lHktZmKTHPoRhObJZmRAP7VchHYoaqaL.jpg"
+            data-description="Beautiful School Garden with sustainable plant selection."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/17/17/66/86/1000_F_1717668646_lHktZmKTHPoRhObJZmRAP7VchHYoaqaL.jpg" alt="Rock Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-5"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="View of green lawn & trees"
+            data-img="https://as1.ftcdn.net/v2/jpg/15/18/25/30/1000_F_1518253079_cnpGGKtQJRKBEP7CQemQNT2TXPye39aL.jpg"
+            data-description="Beautiful View of green lawn, trees and plants."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/15/18/25/30/1000_F_1518253079_cnpGGKtQJRKBEP7CQemQNT2TXPye39aL.jpg" alt="Indoor Garden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="services" class="py-5 services-section">
+    <div class="container" id="verticalGarden">
+      <h2 class="section-title text-center mb-5">Vertical Garden</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Balcony features vertical garden"
+            data-img="https://as1.ftcdn.net/v2/jpg/16/97/13/00/1000_F_1697130033_n4mHSTEPIpBTrMhlifyO3VXS9B0gYjHe.jpg"
+            data-description="Space-saving green walls for indoor and outdoor spaces."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/16/97/13/00/1000_F_1697130033_n4mHSTEPIpBTrMhlifyO3VXS9B0gYjHe.jpg" alt="Landscaping & Gardening">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-1"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="A vertical hanging garden"
+            data-img="https://as2.ftcdn.net/v2/jpg/08/23/34/65/1000_F_823346560_nNsbcG9aqW9ZIQ3fu5u4CcoMZFwwjt2d.jpg"
+            data-description="Beautiful cottage designs with sustainable plant selection."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/08/23/34/65/1000_F_823346560_nNsbcG9aqW9ZIQ3fu5u4CcoMZFwwjt2d.jpg" alt="Cottage Garden">         
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-2"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Vertical garden wall feature"
+            data-img="https://as1.ftcdn.net/v2/jpg/16/25/39/20/1000_F_1625392054_sjryrERJWpmybXI1hletE90CQVRs6rIi.jpg"
+            data-description="Space-saving green walls for indoor and outdoor spaces."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/16/25/39/20/1000_F_1625392054_sjryrERJWpmybXI1hletE90CQVRs6rIi.jpg" alt="Vertical Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-3"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Vertical gardening in the apartment"
+            data-img="https://as1.ftcdn.net/v2/jpg/06/06/18/52/1000_F_606185216_CBrZumoFdX9plGKz3718DeJp4SshENIl.jpg"
+            data-description="Space-saving green walls for indoor and outdoor spaces."
+            >
+            <img src="https://as1.ftcdn.net/v2/jpg/06/06/18/52/1000_F_606185216_CBrZumoFdX9plGKz3718DeJp4SshENIl.jpg" alt="Waterfalls">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-4"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Indoor plant wall with potted houseplants"
+            data-img="https://as2.ftcdn.net/v2/jpg/15/77/92/95/1000_F_1577929511_TxMGw0mghQsaMzWVqq7ImeqlASz4pgRK.jpg"
+            data-description="Space-saving green walls for indoor and outdoor spaces."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/15/77/92/95/1000_F_1577929511_TxMGw0mghQsaMzWVqq7ImeqlASz4pgRK.jpg" alt="Rock Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-5"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Vertical herb garden"
+            data-img="https://as2.ftcdn.net/v2/jpg/12/94/28/59/1000_F_1294285917_HOhYGhQEZLzG018FwSDsRWNwoeyPieHU.jpg"
+            data-description="Space-saving green walls for indoor and outdoor spaces."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/12/94/28/59/1000_F_1294285917_HOhYGhQEZLzG018FwSDsRWNwoeyPieHU.jpg" alt="Indoor Garden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-5 services-section">
+    <div class="container" id="Fountains">
+      <h2 class="section-title text-center mb-5">Cascading Waterfalls & Fountains</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Fountain with Waterfalls"
+            data-img="https://as1.ftcdn.net/v2/jpg/18/25/27/48/1000_F_1825274868_Zo2udfun8xo3yitR4RRpTa1Urqr0aBD4.jpg"
+            data-description="Custom water features that create peaceful ambience."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/18/25/27/48/1000_F_1825274868_Zo2udfun8xo3yitR4RRpTa1Urqr0aBD4.jpg" alt="Landscaping & Gardening">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-1"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Modern Waterfall Fountain"
+            data-img="https://as2.ftcdn.net/v2/jpg/18/25/09/89/1000_F_1825098983_r0uE8isizNP18KR1IM814rjaxg1McSyB.jpg"
+            data-description="Custom water features that create peaceful ambience."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/18/25/09/89/1000_F_1825098983_r0uE8isizNP18KR1IM814rjaxg1McSyB.jpg" alt="Cottage Garden">         
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-2"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Fountain in the courtyard"
+            data-img="https://as2.ftcdn.net/v2/jpg/18/16/00/67/1000_F_1816006779_ODfExnHpy9pjATLmgVrhIjq7qFtGfpVT.jpg"
+            data-description="Custom water features that create peaceful ambience."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/18/16/00/67/1000_F_1816006779_ODfExnHpy9pjATLmgVrhIjq7qFtGfpVT.jpg" alt="Vertical Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-3"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Waterfall fountain with illuminated basin"
+            data-img="https://as1.ftcdn.net/v2/jpg/18/25/09/94/1000_F_1825099471_F3IaGiJBguag2DRYrrPyiz8ocvQLigZT.jpg"
+            data-description="Custom water features that create peaceful ambience."
+            >
+            <img src="https://as1.ftcdn.net/v2/jpg/18/25/09/94/1000_F_1825099471_F3IaGiJBguag2DRYrrPyiz8ocvQLigZT.jpg" alt="Waterfalls">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-4"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Weathered stone fountain"
+            data-img="https://as2.ftcdn.net/v2/jpg/17/95/25/59/1000_F_1795255998_1itDolk6HCnuPgiHoOs4XhXCYgQv86o7.jpg"
+            data-description="Custom water features that create peaceful ambience."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/17/95/25/59/1000_F_1795255998_1itDolk6HCnuPgiHoOs4XhXCYgQv86o7.jpg" alt="Rock Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-5"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Modern Concrete Water Feature"
+            data-img="https://as1.ftcdn.net/v2/jpg/18/25/04/04/1000_F_1825040425_wxj4308rbXfV8Tm5MnvEdmevTjiGx64Y.jpg"
+            data-description="Custom water features that create peaceful ambience."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/18/25/04/04/1000_F_1825040425_wxj4308rbXfV8Tm5MnvEdmevTjiGx64Y.jpg" alt="Indoor Garden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="services" class="py-5 services-section">
+    <div class="container" id="rockGarden">
+      <h2 class="section-title text-center mb-5">Rock Garden</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Natural stone, plants rock garden"
+            data-img="https://as2.ftcdn.net/v2/jpg/16/06/81/15/1000_F_1606811512_xWUxqQlO1fX9OTvNmIv1bmGEd6fsrXni.jpg"
+            data-description="Natural stone arrangements for aesthetic outdoor appeal."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/16/06/81/15/1000_F_1606811512_xWUxqQlO1fX9OTvNmIv1bmGEd6fsrXni.jpg" alt="Landscaping & Gardening">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-1"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Rock garden & rockery"
+            data-img="https://as2.ftcdn.net/v2/jpg/18/17/93/77/1000_F_1817937762_BO0lWG3WoMbezCklSZNqBnAoQAJKttBl.jpg"
+            data-description="Natural stone arrangements for aesthetic outdoor appeal."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/18/17/93/77/1000_F_1817937762_BO0lWG3WoMbezCklSZNqBnAoQAJKttBl.jpg" alt="Cottage Garden">         
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-2"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Fountain in the courtyard"
+            data-img="https://as1.ftcdn.net/v2/jpg/17/49/52/34/1000_F_1749523466_Vz69lfJqcl0OHdYbOlnLT1EqpKzYzDUz.jpg"
+            data-description="Natural stone arrangements for aesthetic outdoor appeal."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/17/49/52/34/1000_F_1749523466_Vz69lfJqcl0OHdYbOlnLT1EqpKzYzDUz.jpg" alt="Vertical Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-3"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Stone Rockery Staircase"
+            data-img="https://as2.ftcdn.net/v2/jpg/15/81/12/47/1000_F_1581124770_cO3mnZahCaOhYwXtDRTECVgrbRjNrpez.jpg"
+            data-description="Natural stone arrangements for aesthetic outdoor appeal."
+            >
+            <img src="https://as2.ftcdn.net/v2/jpg/15/81/12/47/1000_F_1581124770_cO3mnZahCaOhYwXtDRTECVgrbRjNrpez.jpg" alt="Waterfalls">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-4"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Indoor rock garden waterfall"
+            data-img="https://as1.ftcdn.net/v2/jpg/17/69/95/66/1000_F_1769956651_0Poa7Iqk0h1GkUvtr2Vfy0r8wU03sKYd.jpg"
+            data-description="Natural stone arrangements for aesthetic outdoor appeal."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/17/69/95/66/1000_F_1769956651_0Poa7Iqk0h1GkUvtr2Vfy0r8wU03sKYd.jpg" alt="Rock Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-5"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Modern rock garden with edible plants"
+            data-img="https://as1.ftcdn.net/v2/jpg/16/08/34/22/1000_F_1608342233_1DTvUdzcbMurD0zPlB27MoNdVD3BdkPd.jpg"
+            data-description="Natural stone arrangements for aesthetic outdoor appeal."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/16/08/34/22/1000_F_1608342233_1DTvUdzcbMurD0zPlB27MoNdVD3BdkPd.jpg" alt="Indoor Garden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="services" class="py-5 services-section">
+    <div class="container" id="indoorGarden">
+      <h2 class="section-title text-center mb-5">Indoor Garden</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Indoor decoration with plants"
+            data-img="https://cdn.mos.cms.futurecdn.net/gWN89NisCY4XZJbBVGh8PW-768-80.jpg.webp"
+            data-description="Green interior solutions for homes and commercial spaces."
+          >
+            <img src="https://cdn.mos.cms.futurecdn.net/gWN89NisCY4XZJbBVGh8PW-768-80.jpg.webp" alt="Landscaping & Gardening">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-1"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Indoor with hall gardens & plants"
+            data-img="https://i.pinimg.com/736x/34/14/de/3414de7d6adedf86f054d829785dd50b.jpg"
+            data-description="Green interior solutions for homes and commercial spaces."
+          >
+            <img src="https://i.pinimg.com/736x/34/14/de/3414de7d6adedf86f054d829785dd50b.jpg" alt="Cottage Garden">         
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-2"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Assortment of potted herbs and plants"
+            data-img="https://as1.ftcdn.net/v2/jpg/17/16/09/50/1000_F_1716095089_Sqf1EPu91hW7YCEm9zZQU0iWOs8ImMAO.jpg"
+            data-description="Green interior solutions for homes and commercial spaces."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/17/16/09/50/1000_F_1716095089_Sqf1EPu91hW7YCEm9zZQU0iWOs8ImMAO.jpg" alt="Vertical Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-3"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Collection of diverse cactus and succulent plants"
+            data-img="https://as2.ftcdn.net/v2/jpg/18/18/36/53/1000_F_1818365348_34JRGcvPMOXrrfGCyRZJqLAJnCeJspq4.jpg"
+            data-description="Green interior solutions for homes and commercial spaces."
+            >
+            <img src="https://as2.ftcdn.net/v2/jpg/18/18/36/53/1000_F_1818365348_34JRGcvPMOXrrfGCyRZJqLAJnCeJspq4.jpg" alt="Waterfalls">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-4"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Modern atrium with lush indoor garden"
+            data-img="https://as1.ftcdn.net/v2/jpg/16/84/93/72/1000_F_1684937273_bdzuntoNSVsLOrjLfZSjvqkLfr74ENAG.jpg"
+            data-description="Green interior solutions for homes and commercial spaces."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/16/84/93/72/1000_F_1684937273_bdzuntoNSVsLOrjLfZSjvqkLfr74ENAG.jpg" alt="Rock Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-5"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="A indoor conservatory"
+            data-img="https://as1.ftcdn.net/v2/jpg/17/05/01/14/1000_F_1705011479_6SYzykqS0oveZEPNhZ2BGtCocJAYb8uS.jpg"
+            data-description="Green interior solutions for homes and commercial spaces."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/17/05/01/14/1000_F_1705011479_6SYzykqS0oveZEPNhZ2BGtCocJAYb8uS.jpg" alt="Indoor Garden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="services" class="py-5 services-section">
+    <div class="container" id="fishPond">
+      <h2 class="section-title text-center mb-5">Fish Pond</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Fish pond with full of golden koi."
+            data-img="https://as2.ftcdn.net/v2/jpg/16/26/40/41/1000_F_1626404115_Kqrcr9YJ9Sw6OgHdMfD2fvWS1YwwGHrw.jpg"
+            data-description="Beautiful ponds with filtration and clean water systems."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/16/26/40/41/1000_F_1626404115_Kqrcr9YJ9Sw6OgHdMfD2fvWS1YwwGHrw.jpg" alt="Landscaping & Gardening">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-1"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Colorful fish in a serene pond with lily pads"
+            data-img="https://as2.ftcdn.net/v2/jpg/17/37/18/15/1000_F_1737181554_hjw3SKBK9hy7ehSwr6R6SXcAVKenpBUB.jpg"
+            data-description="Beautiful ponds with filtration and clean water systems."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/17/37/18/15/1000_F_1737181554_hjw3SKBK9hy7ehSwr6R6SXcAVKenpBUB.jpg" alt="Cottage Garden">         
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-2"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Peaceful koi pond surrounded by lush greenery"
+            data-img="https://as2.ftcdn.net/v2/jpg/15/45/09/81/1000_F_1545098138_lZYdtT8IPdNjHgWMJ8SOXWlL8Jwg7yFf.jpg"
+            data-description="Beautiful ponds with filtration and clean water systems."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/15/45/09/81/1000_F_1545098138_lZYdtT8IPdNjHgWMJ8SOXWlL8Jwg7yFf.jpg" alt="Vertical Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-3"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Fish pond garden with lily pads and rocks"
+            data-img="https://as1.ftcdn.net/v2/jpg/17/75/85/70/1000_F_1775857043_EUDd51zue2f13mFWES8nw3lBzvoqHPgw.jpg"
+            data-description="Beautiful ponds with filtration and clean water systems."
+            >
+            <img src="https://as1.ftcdn.net/v2/jpg/17/75/85/70/1000_F_1775857043_EUDd51zue2f13mFWES8nw3lBzvoqHPgw.jpg" alt="Waterfalls">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-4"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Large fish ponds in a garden"
+            data-img="https://as2.ftcdn.net/v2/jpg/15/54/93/49/1000_F_1554934951_xBMp5C0QmNrRXsDpleS5s8r4GHF7bitI.jpg"
+            data-description="Beautiful ponds with filtration and clean water systems."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/15/54/93/49/1000_F_1554934951_xBMp5C0QmNrRXsDpleS5s8r4GHF7bitI.jpg" alt="Rock Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-5"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Pond Landscape Design Luxurious Home"
+            data-img="https://as2.ftcdn.net/v2/jpg/12/06/06/09/1000_F_1206060939_XWJ5dzk5LTy4U2VwKnjJUCpf3H3JB5pK.jpg"
+            data-description="Beautiful ponds with filtration and clean water systems."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/12/06/06/09/1000_F_1206060939_XWJ5dzk5LTy4U2VwKnjJUCpf3H3JB5pK.jpg" alt="Indoor Garden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="services" class="py-5 services-section">
+    <div class="container" id="walkway">
+      <h2 class="section-title text-center mb-5">Walkway</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Fish pond with full of golden koi."
+            data-img="https://as2.ftcdn.net/v2/jpg/17/84/23/83/1000_F_1784238331_CtWNKPfaWl24zeejUxFye9GQ1yfVzHzC.jpg"
+            data-description="Stone, tile, or natural pathways for stylish movement."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/17/84/23/83/1000_F_1784238331_CtWNKPfaWl24zeejUxFye9GQ1yfVzHzC.jpg" alt="Landscaping & Gardening">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-1"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Walkway and open campus on a sunny day"
+            data-img="https://as2.ftcdn.net/v2/jpg/17/65/20/25/1000_F_1765202582_p3OQf5yPHakcJYZplyJalCiKgWP8GN1M.jpg"
+            data-description="Stone, tile, or natural pathways for stylish movement."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/17/65/20/25/1000_F_1765202582_p3OQf5yPHakcJYZplyJalCiKgWP8GN1M.jpg" alt="Cottage Garden">         
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-2"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Curved pathway surrounded by flowering"
+            data-img="https://as1.ftcdn.net/v2/jpg/17/82/30/06/1000_F_1782300676_cOoMZtI44QAYynGxY6KUuIeHWzpQRHrK.jpg"
+            data-description="Stone, tile, or natural pathways for stylish movement."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/17/82/30/06/1000_F_1782300676_cOoMZtI44QAYynGxY6KUuIeHWzpQRHrK.jpg" alt="Vertical Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-3"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Close-up view of vibrant pathway"
+            data-img="https://as1.ftcdn.net/v2/jpg/16/76/78/12/1000_F_1676781240_gMQqTy3hzOJAtw7ZMPA8dXL9gWanei0L.jpg"
+            data-description="Stone, tile, or natural pathways for stylish movement."
+            >
+            <img src="https://as1.ftcdn.net/v2/jpg/16/76/78/12/1000_F_1676781240_gMQqTy3hzOJAtw7ZMPA8dXL9gWanei0L.jpg" alt="Waterfalls">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-4"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Pathway stone walkway in a garden"
+            data-img="https://as1.ftcdn.net/v2/jpg/18/38/24/08/1000_F_1838240814_ilAVUmMyuqd4vfhfWE4BLmCdwVoy3tCV.jpg"
+            data-description="Stone, tile, or natural pathways for stylish movement."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/18/38/24/08/1000_F_1838240814_ilAVUmMyuqd4vfhfWE4BLmCdwVoy3tCV.jpg" alt="Rock Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-5"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Elegant evening garden path"
+            data-img="https://as1.ftcdn.net/v2/jpg/17/50/54/46/1000_F_1750544654_mJ2IYHejwIWMWRIxxhdrMKBtcu3OTHuU.jpg"
+            data-description="Stone, tile, or natural pathways for stylish movement."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/17/50/54/46/1000_F_1750544654_mJ2IYHejwIWMWRIxxhdrMKBtcu3OTHuU.jpg" alt="Indoor Garden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="services" class="py-5 services-section">
+    <div class="container" id="gazebo">
+      <h2 class="section-title text-center mb-5">Gazebo</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Gazebo in a Lush Green Park"
+            data-img="https://as1.ftcdn.net/v2/jpg/18/22/96/68/1000_F_1822966813_HpWXMuI2Hr8sU9zBbOBVMJvwpJd8iwkz.jpg"
+            data-description="Elegant outdoor structures for relaxation and shade."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/18/22/96/68/1000_F_1822966813_HpWXMuI2Hr8sU9zBbOBVMJvwpJd8iwkz.jpg" alt="Landscaping & Gardening">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-1"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Relaxing wooden gazebo"
+            data-img="https://as1.ftcdn.net/v2/jpg/18/07/20/14/1000_F_1807201483_p7zH7YWhqCYrRAPFapcwOOoDFb21jiFF.jpg"
+            data-description="Elegant outdoor structures for relaxation and shade."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/18/07/20/14/1000_F_1807201483_p7zH7YWhqCYrRAPFapcwOOoDFb21jiFF.jpg" alt="Cottage Garden">         
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-2"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Park gazebo amid vibrant green foliage"
+            data-img="https://as2.ftcdn.net/v2/jpg/18/50/23/99/1000_F_1850239959_7KvGz0G8X9apZi45qq9K669k72x3YOmV.jpg"
+            data-description="Elegant outdoor structures for relaxation and shade."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/18/50/23/99/1000_F_1850239959_7KvGz0G8X9apZi45qq9K669k72x3YOmV.jpg" alt="Vertical Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-3"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Wedding gazebo in a garden park"
+            data-img="https://as1.ftcdn.net/v2/jpg/18/18/35/18/1000_F_1818351890_X6KUf139t4NX3Ie0XUeRcUUyHwYlPjLi.jpg"
+            data-description="Elegant outdoor structures for relaxation and shade."
+            >
+            <img src="https://as1.ftcdn.net/v2/jpg/18/18/35/18/1000_F_1818351890_X6KUf139t4NX3Ie0XUeRcUUyHwYlPjLi.jpg" alt="Waterfalls">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-4"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="City park with Gazebo"
+            data-img="https://as1.ftcdn.net/v2/jpg/17/13/80/30/1000_F_1713803045_00d4WNLYt7T8SLy7AyT3lLpdo9IgqmqS.jpg"
+            data-description="Elegant outdoor structures for relaxation and shade."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/17/13/80/30/1000_F_1713803045_00d4WNLYt7T8SLy7AyT3lLpdo9IgqmqS.jpg" alt="Rock Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-5"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Wooden gazebo in a lush park"
+            data-img="https://as1.ftcdn.net/v2/jpg/17/35/31/28/1000_F_1735312887_q8n8hDJgEJM6xyXhsJROsWHl03Lvrmpm.jpg"
+            data-description="Elegant outdoor structures for relaxation and shade."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/17/35/31/28/1000_F_1735312887_q8n8hDJgEJM6xyXhsJROsWHl03Lvrmpm.jpg" alt="Indoor Garden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <section id="services" class="py-5 services-section">
+    <div class="container" id="maintenanceServices">
+      <h2 class="section-title text-center mb-5">Maintenance Services</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Man cleaning the gutter"
+            data-img="https://as1.ftcdn.net/v2/jpg/17/04/56/40/1000_F_1704564085_TouGvx6JpAgWAXhCuyXZYycFikcJpx2U.jpg"
+            data-description="Regular professional upkeep to keep spaces fresh & healthy."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/17/04/56/40/1000_F_1704564085_TouGvx6JpAgWAXhCuyXZYycFikcJpx2U.jpg" alt="Landscaping & Gardening">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-1"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Cleaning the gutter of a garden"
+            data-img="https://as2.ftcdn.net/v2/jpg/18/27/35/41/1000_F_1827354155_3MNzcNOThpzF1qrRNfSVeMCjZSmy0vH5.jpg"
+            data-description="Regular professional upkeep to keep spaces fresh & healthy."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/18/27/35/41/1000_F_1827354155_3MNzcNOThpzF1qrRNfSVeMCjZSmy0vH5.jpg" alt="Cottage Garden">         
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-2"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Lawn Care Maintenance System"
+            data-img="https://as1.ftcdn.net/v2/jpg/16/77/11/66/1000_F_1677116635_ATHGfDA0eaJtP1kxy7LxIVPK8wQS8Lqp.jpg"
+            data-description="Regular professional upkeep to keep spaces fresh & healthy."
+          >
+            <img src="https://as1.ftcdn.net/v2/jpg/16/77/11/66/1000_F_1677116635_ATHGfDA0eaJtP1kxy7LxIVPK8wQS8Lqp.jpg" alt="Vertical Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-3"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Raking Colorful Autumn Leaves"
+            data-img="https://as1.ftcdn.net/v2/jpg/16/67/52/66/1000_F_1667526646_ZbHBS1eoorqcm7V6WV4JlhghHrboWbS6.jpg"
+            data-description="Regular professional upkeep to keep spaces fresh & healthy."
+            >
+            <img src="https://as1.ftcdn.net/v2/jpg/16/67/52/66/1000_F_1667526646_ZbHBS1eoorqcm7V6WV4JlhghHrboWbS6.jpg" alt="Waterfalls">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-4"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Cleaning terrace in park"
+            data-img="https://as2.ftcdn.net/v2/jpg/17/42/28/45/1000_F_1742284536_ss1OAlY7vX0UGYZfe4qHmTIbH2lnUObV.jpg"
+            data-description="Regular professional upkeep to keep spaces fresh & healthy."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/17/42/28/45/1000_F_1742284536_ss1OAlY7vX0UGYZfe4qHmTIbH2lnUObV.jpg" alt="Rock Garden">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-card animate-fast delay-5"
+            data-bs-toggle="modal"
+            data-bs-target="#projectModal"
+            data-title="Trimming Green Bush"
+            data-img="https://as2.ftcdn.net/v2/jpg/18/15/71/05/1000_F_1815710590_JRkZRAp5uqNMEmu7VPosmtoYQAZqbGtB.jpg"
+            data-description="Regular professional upkeep to keep spaces fresh & healthy."
+          >
+            <img src="https://as2.ftcdn.net/v2/jpg/18/15/71/05/1000_F_1815710590_JRkZRAp5uqNMEmu7VPosmtoYQAZqbGtB.jpg" alt="Indoor Garden">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down modal-lg">
+    <div class="modal-content">
+      <button type="button" class="btn-close ms-auto m-3" data-bs-dismiss="modal"></button>
+
+      <div class="modal-body p-0 text-center">
+        <img id="modalImage" src="" alt="" class="img-fluid w-100">
+        <div class="p-4">
+          <h4 id="modalTitle" class="fw-bold"></h4>
+          <p class="text-muted mt-2" id="projectModalText">
+            Premium design crafted with precision, aesthetics, and sustainability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h4 class="mb-3">ALPINIA Landscaping Services</h4>
+          <p>Bringing nature closer to your home with elegance, creativity, and decades of trusted expertise.</p>
+          <p><i class="fas fa-envelope me-2"></i> info@alpiniagreenings.com</p>
+          <p><i class="fas fa-phone me-2"></i> +91 974 5501 666</p>
+        </div>
+        <div class="col-md-6">
+          <h5 class="mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4" style="background: #f0c75e; height: 1px; border: 0;" />
+      <p class="text-center mb-0">© 2025 ALPINIA. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Smooth Scroll -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+  
+  <!-- Scroll Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add animation classes to sections and cards
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.add('animate-on-scroll');
+      });
+      
+      document.querySelectorAll('.service-card').forEach((card, index) => {
+        card.classList.add('animate-fast');
+        card.classList.add(`delay-${(index % 5) + 1}`);
+      });
+      
+      // Check if element is in viewport
+      function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
+          rect.bottom >= 0
+        );
+      }
+      
+      // Handle scroll animation
+      function handleScroll() {
+        document.querySelectorAll('.animate-on-scroll').forEach(section => {
+          if (isElementInViewport(section) && !section.classList.contains('animate')) {
+            section.classList.add('animate');
+          }
+        });
+        
+        document.querySelectorAll('.animate-fast').forEach(card => {
+          if (isElementInViewport(card) && !card.classList.contains('animate')) {
+            card.classList.add('animate');
+          }
+        });
+      }
+      
+      // Initial check and scroll listener
+      handleScroll();
+      window.addEventListener('scroll', handleScroll);
+    });
+  </script>
+
+  <script>
+  const projectModal = document.getElementById('projectModal');
+  projectModal.addEventListener('show.bs.modal', function (event) {
+    const trigger = event.relatedTarget;
+
+    const title = trigger.getAttribute('data-title');
+    const img = trigger.getAttribute('data-img');
+    const description = trigger.getAttribute('data-description');
+
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalImage').src = img;
+     document.getElementById('projectModalText').textContent = description;
+  });
+</script>
+</body>
+</html>
+
