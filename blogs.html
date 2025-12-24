@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – ALPINIA Greenings</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #0f3d2e;
+      --accent: #f0c75e;
+      --light: #f8fdf9;
+      --white: #ffffff;
+      --dark-text: #2d2d2d;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--dark-text);
+      scroll-behavior: smooth;
+      margin: 0;
+      padding-top: 80px; /* Account for fixed navbar */
+    }
+
+    /* === ANIMATION CLASSES === */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .animate-on-scroll.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .animate-fast {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    .animate-fast.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+    /* === BANNER === */
+    .banner-section {
+      position: relative;
+      height: 100vh;
+      min-height: 400px;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('img/pathway.png') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .banner-content h1 {
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    }
+    .banner-content p {
+      max-width: 800px;
+      margin: 0 auto 25px;
+      opacity: 0.95;
+      font-size: 1.1rem;
+    }
+    .btn-banner {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 600;
+      padding: 10px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-banner:hover {
+      background: #e0b342;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    /* === COMMON STYLES === */
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--primary);
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+    .section-subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: #555;
+      font-size: 1.05rem;
+    }
+
+    /* === WHO WE ARE === */
+    .about-content {
+      line-height: 1.7;
+      color: #444;
+      font-size: 1.02rem;
+    }
+    .about-content p {
+      margin-bottom: 16px;
+    }
+    .about-image {
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    /* === WHY CHOOSE US === */
+    .values-section {
+      background-color: #e8f7ec;
+      padding: 80px 0;
+    }
+    .value-card {
+      background: var(--white);
+      padding: 30px 20px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 25px;
+    }
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    }
+    .value-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #4caf50, var(--primary));
+      border-radius: 50%;
+      color: white;
+      font-size: 28px;
+    }
+    .value-card h5 {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .value-card p {
+      font-size: 0.95rem;
+      color: #666;
+      margin: 0;
+    }
+
+    /* === SERVICES SECTION === */
+    .services-showcase {
+      padding: 80px 0;
+    }
+    .service-item {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .service-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .service-item:hover img {
+      transform: scale(1.1);
+    }
+    .service-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 61, 46, 0.85);
+      color: white;
+      padding: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    /* === HIGHLIGHT CARD === */
+    .brand-highlight {
+      height: 350px;
+      padding: 35px 30px;
+      border-radius: 20px;
+      position: relative;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 60%),
+        linear-gradient(135deg, #0f3d2e, #043b25);
+      color: #ffffff;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      overflow: hidden;
+    }
+    .brand-highlight::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M40 20 C30 50 30 90 40 120 C50 90 50 50 40 20 Z'/%3E%3Cpath d='M120 40 C110 70 110 110 120 140 C130 110 130 70 120 40 Z'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 180px;
+      z-index: 0;
+    }
+    .brand-highlight > * {
+      position: relative;
+      z-index: 1;
+    }
+    .brand-highlight h4 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #f0c75e;
+      letter-spacing: 0.5px;
+    }
+    .brand-points {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px;
+    }
+    .brand-points li {
+      margin-bottom: 12px;
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+    .trust-strip {
+      position: absolute;
+      bottom: 25px;
+      left: 30px;
+      right: 30px;
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.12);
+      padding: 12px 18px;
+      border-radius: 14px;
+      backdrop-filter: blur(6px);
+    }
+    .trust-strip span {
+      font-weight: 600;
+      font-size: 14px;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* === CTA === */
+    .cta-section {
+      background: var(--primary);
+      color: white;
+      padding: 70px 0;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    .btn-cta {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 600;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+    .btn-cta:hover {
+      background: #dcb13a;
+    }
+
+    /* === NAVBAR === */
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23056651' stroke-width='3' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+    .navbar {
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-bottom: 4px solid #056651;
+      backdrop-filter: blur(6px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    .navbar-brand {
+      font-size: 28px;
+      font-weight: 700;
+      color: #f0c75e !important;
+      letter-spacing: 1px;
+    }
+    .nav-link {
+      color: #056651 !important;
+      margin-right: 15px;
+      font-weight: 500;
+      position: relative;
+    }
+    .nav-link:hover {
+      color: #f0c75e !important;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #f0c75e;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: #0f3d2e;
+      color: #fff;
+      padding: 40px 0 20px;
+    }
+    footer a {
+      color: #f0c75e;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .myBg {
+      position: relative;
+      background-color: #c1fcdd;
+      background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.5'%3E%3Cpath d='M0 500 Q50 460 100 500 T200 500 T300 500 T400 500 T500 500 T600 500' stroke='%23ffffff' stroke-width='8' fill='none'/%3E%3Crect x='45' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='145' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='245' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='345' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='445' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Crect x='545' y='500' width='10' height='80' fill='%23ffffff'/%3E%3Ccircle cx='80' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='150' cy='450' r='12' fill='%23ff8a00'/%3E%3Ccircle cx='220' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='300' cy='455' r='14' fill='%23ff8a00'/%3E%3Ccircle cx='380' cy='470' r='16' fill='%23ffcc00'/%3E%3Ccircle cx='450' cy='450' r='12' fill='%23ff8a00'/%3E%3Cpath d='M120 520 C110 500 90 500 80 520 C90 540 110 540 120 520 Z' fill='%2300aa55'/%3E%3Cpath d='M260 520 C250 500 230 500 220 520 C230 540 250 540 260 520 Z' fill='%2300aa55'/%3E%3Cpath d='M400 520 C390 500 370 500 360 520 C370 540 390 540 400 520 Z' fill='%2300aa55'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 600px;
+      background-position: center bottom;
+      padding-bottom: 200px;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      body { padding-top: 70px; }
+      .banner-section { height: 60vh; }
+      .value-card { padding: 22px 15px; }
+      .service-item { height: 180px; }
+      .brand-highlight { height: auto; min-height: 300px; }
+    }
+    @media (max-width: 576px) {
+      .section-title { font-size: 1.8rem; }
+      .service-label { font-size: 0.9rem; padding: 10px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home"><img src="img/logo.png" alt="Logo" ></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero Banner -->
+  <section class="banner-section animate-on-scroll">
+    <div class="container">
+      <div class="banner-content">
+        <h1>ALPINIA blog page </h1>
+        <p>Expert answers to common questions about creating beautiful outdoor spaces</p>
+        <a href="#contact" class="btn-banner">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="blogSection animate-on-scroll">
+    <div class="container">
+<!-- BLOGS SECTION WITH 25 Q&A ITEMS -->
+<section id="blogs" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Landscaping & Gardening Q&A</h2>
+    <p class="text-center mb-5 text-muted">Expert answers to common questions about creating beautiful outdoor spaces</p>
+    
+    <div class="accordion" id="qaAccordion">
+      <!-- Landscaping Fundamentals -->
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading1">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+            What are the key elements of a well-designed landscape?
+          </button>
+        </h2>
+        <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">A well-designed landscape integrates hardscaping (paths, walls, structures), softscaping (plants, trees, lawns), water features, lighting, and functional spaces. The best designs balance aesthetics with practicality, considering your property's natural features, climate conditions, maintenance requirements, and how you intend to use your outdoor spaces. At ALPINIA Greenings, we prioritize creating cohesive designs where each element complements the others while expressing your personal style.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+            How do I choose the right plants for my landscape that will thrive year-round?
+          </button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Selecting plants that thrive year-round requires understanding your local climate zone, soil conditions, sun exposure, and water availability. We recommend a layered approach: foundation plants that provide structure year-round (like evergreens), seasonal performers for spring/summer blooms, plants with interesting fall foliage or berries, and winter-interest specimens with attractive bark, form, or winter blooms. Native plants often require less maintenance and support local wildlife. Our landscape designers conduct thorough site analyses before recommending plant selections tailored to your specific conditions.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+            What's the difference between landscape design and landscape installation?
+          </button>
+        </h2>
+        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Landscape design is the planning phase where we create detailed drawings, plant lists, material specifications, and construction details for your outdoor space. This includes site analysis, conceptual drawings, 3D renderings, and final construction plans. Landscape installation is the physical implementation of that design—preparing the site, installing hardscaping elements, planting, irrigation setup, and final touches. Quality installations require skilled craftsmen who understand the designer's vision and can address site-specific challenges. At ALPINIA, our designers work closely with our installation teams to ensure seamless execution of your landscape vision.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Villa Gardening -->
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+            How can I create a luxurious villa garden that impresses guests while remaining practical for daily use?
+          </button>
+        </h2>
+        <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Creating an impressive yet practical villa garden requires thoughtful zoning of spaces. Design grand entrance features and statement areas near gathering spaces to create impact, while incorporating practical elements like service access, storage for gardening tools, and low-maintenance plantings in less visible areas. Consider incorporating elegant hardscaping materials, sophisticated lighting to highlight architectural features, water elements for ambiance, and curated plant collections that showcase seasonal interest. Smart irrigation and automated systems reduce maintenance while ensuring your garden always looks its best. The key is balancing visual drama with everyday functionality.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading5">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+            What are the best flowering plants for creating a fragrant villa garden in tropical climates?
+          </button>
+        </h2>
+        <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">For tropical villa gardens, consider fragrant plants like Plumeria (Frangipani) with its intoxicating evening scent, Gardenias with their creamy white blooms, Jasmine varieties that can climb trellises or walls, Ylang-Ylang trees for dramatic fragrant flowers, and Night-Blooming Jasmine for evening garden enjoyment. For shaded areas, Heliconias and Gingers add both fragrance and exotic visual interest. These plants not only provide beautiful scents but also create sensory experiences that elevate the luxury feel of your villa garden. Remember to position fragrant plants near seating areas, pathways, or open windows to maximize their impact.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading6">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+            How do I design villa garden lighting that enhances both security and ambiance?
+          </button>
+        </h2>
+        <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Villa garden lighting should incorporate multiple layers: path lighting for safety, accent lighting to highlight architectural features and specimen plants, area lighting for gathering spaces, and security lighting for perimeter protection. Use warm white LEDs (2700K-3000K) for ambiance rather than harsh cool white lights. Install lights at varying heights—ground-level bollards, mid-level wall sconces, and overhead canopy lighting. Consider smart lighting systems that allow you to create scenes for different occasions and set automatic timers or motion sensors for security areas. Strategic lighting can extend your usable garden hours while creating dramatic nighttime visual effects that showcase your villa's best features.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Vertical Gardens -->
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading7">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+            What are the structural requirements for installing a living vertical garden on a building facade?
+          </button>
+        </h2>
+        <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Before installing a vertical garden on a building facade, we must assess the structural load capacity of the wall to support the weight of the system when fully saturated with water and mature plants. Most modular vertical garden systems weigh 30-60 pounds per square foot when wet. The wall must be structurally sound, with proper waterproofing behind the system, and adequate access for maintenance. We evaluate the sun exposure, wind conditions, proximity to water sources, and access for irrigation maintenance. Professional installation requires engineering approval for larger installations, proper waterproofing membranes, structural mounting systems, and integration with irrigation. At ALPINIA, we conduct thorough assessments before recommending vertical garden solutions for any building facade.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading8">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+            Which plants work best for indoor vertical gardens in low-light office environments?
+          </button>
+        </h2>
+        <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">For low-light office vertical gardens, choose resilient plants that thrive with minimal direct sunlight: Pothos varieties (Epipremnum aureum) in various colors, Philodendron Heartleaf, ZZ Plant (Zamioculcas zamiifolia), Peace Lily (Spathiphyllum), Snake Plant (Sansevieria), and certain Fern varieties like Bird's Nest Fern. These plants not only tolerate lower light but also improve indoor air quality by filtering common pollutants. When designing office vertical gardens, we incorporate LED grow lights on timers to supplement natural light, use self-watering systems to ensure consistent moisture, and select plants with varying textures and colors to create visual interest despite the challenging conditions. Maintenance access is crucial for long-term success.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading9">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+            How much does it cost to install and maintain a medium-sized vertical garden for a residential property?
+          </button>
+        </h2>
+        <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">The cost of a residential vertical garden varies based on size, complexity, plant selection, and irrigation systems. A medium-sized installation (20-30 square feet) typically ranges from $150-300 per square foot for design, materials, and installation. Annual maintenance costs are approximately 15-20% of the installation cost, covering pruning, fertilizing, irrigation system checks, plant replacement, and quarterly professional inspections. Factors affecting cost include whether it's indoor or outdoor, irrigation complexity (manual vs. automated), plant selection (common vs. rare varieties), and accessibility for maintenance. While initial investment is significant, vertical gardens provide excellent ROI through improved property value, energy efficiency (natural insulation), air purification, and enhanced wellbeing. ALPINIA offers detailed quotes after site assessment and design planning.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Water Features & Fountains -->
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading10">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+            What are the most low-maintenance water feature options for busy homeowners who still want the ambiance of moving water?
+          </button>
+        </h2>
+        <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">For busy homeowners, consider these low-maintenance water features: Wall-mounted fountains with recirculating pumps and accessible reservoirs that require minimal cleaning; Self-contained bubbling urns or sphere fountains with large basins that reduce evaporation and debris accumulation; Solar-powered small fountains that eliminate electrical connections; Water walls with smooth surfaces that prevent algae buildup and are easy to wipe clean. The key to low maintenance is proper sizing (larger water volumes are more stable), quality pumps with filters, strategic placement away from trees that drop debris, and using beneficial bacteria products that reduce algae growth naturally. At ALPINIA, we design water features with maintenance access built in, including easy-to-remove pump covers and accessible water reservoirs that make cleaning simple.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading11">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+            How do I prevent algae growth in my garden fountain without using harsh chemicals?
+          </button>
+        </h2>
+        <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Preventing algae naturally requires a multi-pronged approach: Position your fountain in partial shade (50-60% sunlight) to limit photosynthesis; Install a quality pump with proper filtration to keep water moving and oxygenated; Add beneficial bacteria products specifically designed for water features; Incorporate aquatic plants like water lilies or water hyacinths that compete with algae for nutrients; Use copper elements (like pennies or copper tubing) which naturally inhibit algae growth; Clean the fountain basin monthly with a stiff brush and vinegar solution rather than bleach. For stone fountains, consider sealing porous surfaces to prevent algae from embedding in tiny crevices. Regular maintenance—such as wiping down surfaces weekly and performing a thorough cleaning every 2-3 months—prevents major algae problems before they start.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading12">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+            What's the ideal placement for a fountain in a small garden to maximize visual impact and sound benefits?
+          </button>
+        </h2>
+        <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">In smaller gardens, place fountains where they can be both seen and heard from your primary living spaces. Position them at the end of a path to create a focal point that draws the eye deeper into the garden. For sound benefits, locate fountains near seating areas but not directly adjacent to conversation zones (8-10 feet away is ideal). Consider placing fountains against a wall or fence to amplify the sound through reflection. For visual impact in small spaces, choose vertical fountains that draw the eye upward rather than spreading horizontally. Corner placements can make small gardens feel larger by creating a sense of depth. Remember to position fountains where their reflection can be seen in water surfaces or glass doors, and ensure they have access to electricity (or plan for solar power) and are accessible for maintenance.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Rock Gardens -->
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading13">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
+            What's the best way to design a rock garden that looks natural rather than contrived?
+          </button>
+        </h2>
+        <div id="collapse13" class="accordion-collapse collapse" aria-labelledby="heading13" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Creating a natural-looking rock garden requires careful attention to geological principles. Study local natural rock formations and mimic their patterns—rocks should appear to emerge from the ground rather than sitting on top of it. Use rocks of the same geological type and color family for authenticity. Position larger rocks first, burying 1/3 to 1/2 of each rock to create the impression they're part of the landscape. Arrange rocks in odd-numbered groupings with varying sizes in triangular formations. Place soil and plants after rocks are positioned, using native alpine and drought-tolerant species that naturally grow in rocky environments. The slope should follow natural contours, and pathways should be made of materials that match the local geology. Most importantly, avoid symmetrical arrangements—nature is beautifully irregular. At ALPINIA, our designers study regional geology to create rock gardens that blend seamlessly with their surroundings.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading14">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
+            Which plants thrive best in rock gardens with poor soil and excellent drainage?
+          </button>
+        </h2>
+        <div id="collapse14" class="accordion-collapse collapse" aria-labelledby="heading14" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Rock gardens demand plants that tolerate poor soil, excellent drainage, and often intense sun exposure. Ideal choices include Sedums and Sempervivums (hens and chicks) which store water in their leaves; Alpine plants like Aubrieta and Saxifraga that naturally grow in mountain crevices; Drought-tolerant perennials such as Lavender, Artemisia, and Dianthus; Native groundcovers like Creeping Thyme and Woolly Thyme that cascade over rocks; Bulbs including Crocus, Species Tulips, and Alliums that thrive in well-drained conditions. For larger rock gardens, consider drought-tolerant shrubs like Juniper varieties, Dwarf Conifers, and Santolina. These plants not only survive in challenging rock garden conditions but actually flourish when given the excellent drainage and sun exposure these environments provide. Soil preparation is crucial—amend with grit, sand, and minimal organic matter to mimic natural rocky terrain.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading15">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse15" aria-expanded="false" aria-controls="collapse15">
+            How do I calculate the proper amount of rocks needed for a rock garden of specific dimensions?
+          </button>
+        </h2>
+        <div id="collapse15" class="accordion-collapse collapse" aria-labelledby="heading15" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Calculating rock quantities requires considering both visual impact and practical function. For a natural appearance, rocks should cover 40-60% of the visible surface area. As a general guideline: For a small rock garden (50 sq ft), plan for 1-2 tons of rock; Medium garden (100 sq ft), 2-4 tons; Large garden (200+ sq ft), 4-8+ tons. The distribution should follow the "one-third rule": 1/3 large specimen rocks (bigger than 18" in any dimension), 1/3 medium accent rocks (8-18"), and 1/3 small filler rocks and gravel. When ordering, increase quantities by 10-15% to account for unexpected needs and to ensure consistent color/texture. Remember that rocks appear smaller when placed in landscape than in piles at the supplier. At ALPINIA, we create detailed 3D models before purchasing materials to ensure proper visual balance while staying within budget.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Indoor Gardens -->
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading16">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse16" aria-expanded="false" aria-controls="collapse16">
+            How can I create an indoor garden in an apartment with limited natural light and space?
+          </button>
+        </h2>
+        <div id="collapse16" class="accordion-collapse collapse" aria-labelledby="heading16" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Creating a thriving indoor garden in challenging apartment conditions requires strategic plant selection and creative solutions. For low-light areas, choose resilient plants like Snake Plants, ZZ Plants, Pothos, and Peace Lilies that thrive with minimal direct sun. Maximize limited space with vertical solutions: wall-mounted planters, hanging planters from ceiling hooks, tiered plant stands, and windowsill shelves. Use full-spectrum LED grow lights on timers to supplement natural light (12-14 hours daily). Create humidity for tropical plants by grouping plants together, using pebble trays with water, or small humidifiers. Consider self-watering containers to prevent over/under watering. For apartments, focus on air-purifying plants like Spider Plants, Boston Ferns, and Areca Palms that improve indoor air quality while adding greenery. Start with just a few easy-care plants and gradually expand your collection as you gain experience.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading17">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse17" aria-expanded="false" aria-controls="collapse17">
+            What are the most effective ways to control pests in indoor gardens without using chemical pesticides?
+          </button>
+        </h2>
+        <div id="collapse17" class="accordion-collapse collapse" aria-labelledby="heading17" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Indoor garden pest control begins with prevention: quarantine new plants for 1-2 weeks before introducing them to your collection; inspect plants weekly, especially undersides of leaves; maintain proper watering practices to avoid stressed plants that attract pests; and ensure good air circulation. For active infestations, try these natural remedies: Neem oil spray (mix 2 tsp neem oil + 1 tsp dish soap per quart of water) for most common pests; Insecticidal soap sprays for soft-bodied insects; Alcohol-dipped cotton swabs for mealybugs and scale; Yellow sticky traps for fungus gnats and whiteflies; Soil drenches with diluted hydrogen peroxide (1 part 3% H2O2 to 4 parts water) for fungus gnat larvae. For severe infestations, sometimes the most effective solution is removing heavily infested plants to protect your entire collection. Regular monitoring and early intervention are crucial for maintaining healthy indoor gardens without harsh chemicals.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading18">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse18" aria-expanded="false" aria-controls="collapse18">
+            Which indoor plants are both beautiful and improve air quality according to scientific research?
+          </button>
+        </h2>
+        <div id="collapse18" class="accordion-collapse collapse" aria-labelledby="heading18" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Based on NASA's Clean Air Study and subsequent research, these plants excel at both aesthetics and air purification: The Peace Lily (Spathiphyllum) removes ammonia, benzene, formaldehyde and trichloroethylene while producing elegant white blooms; Snake Plant (Sansevieria) uniquely converts CO2 to oxygen at night and filters formaldehyde, xylene, toluene, and nitrogen oxides; Boston Fern (Nephrolepis exaltata) is exceptional at removing formaldehyde and xylene while adding lush texture; Areca Palm (Dypsis lutescens) effectively removes toxins while adding tropical elegance; Spider Plant (Chlorophytum comosum) is virtually indestructible and removes formaldehyde, xylene, and toluene. For best results, place 2-3 plants per 100 square feet of living area. These plants not only purify air but also increase humidity and reduce stress levels, making them valuable additions to any indoor garden.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Fish Ponds -->
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading19">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse19" aria-expanded="false" aria-controls="collapse19">
+            What's the minimum depth required for a koi pond to survive winter in cold climates?
+          </button>
+        </h2>
+        <div id="collapse19" class="accordion-collapse collapse" aria-labelledby="heading19" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">For koi to survive winter in climates where the ground freezes, ponds must be deep enough to prevent freezing solid. The minimum depth depends on your climate zone: In zones 5-6 (moderate winters), a depth of 3-4 feet is sufficient; In zones 3-4 (severe winters), 4-6 feet is recommended. The deepest part should be at least 24 inches below the frost line for your area. Koi survive winter by entering a dormant state at the pond bottom where water remains above freezing (around 39°F/4°C). Proper winter preparation includes installing a pond de-icer or aerator to maintain an open hole in the ice for gas exchange, stopping feeding when water temperatures drop below 50°F (10°C), and removing decaying plant matter before freeze-up. In extremely cold climates (zone 2 and below), koi may need to be brought indoors for winter. At ALPINIA, we design koi ponds with climate-appropriate depths and incorporate winter survival features from the planning stage.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading20">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse20" aria-expanded="false" aria-controls="collapse20">
+            How do I calculate the proper pump and filter size for a garden pond of specific dimensions?
+          </button>
+        </h2>
+        <div id="collapse20" class="accordion-collapse collapse" aria-labelledby="heading20" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Proper pump and filter sizing is crucial for pond health. For pumps: Calculate pond volume (length × width × average depth × 7.5 for gallons) and select a pump that circulates the entire volume at least once per hour. For a 1,000-gallon pond, you need a pump rated for at least 1,000 GPH (gallons per hour) at the height of your waterfall or outlet. For filters: Biological filters should be rated for twice your pond's volume to handle fish waste and plant debris. A 1,000-gallon pond needs a filter system rated for 2,000 gallons. Consider head pressure—pumps lose efficiency with vertical lift and pipe friction. If your waterfall is 3 feet above the pond, choose a pump rated for your required GPH at 3+ feet of head pressure. For koi ponds, oversize filtration by 25-50% compared to water gardens without fish. At ALPINIA, we use professional calculation tools and select commercial-grade equipment that provides proper filtration while minimizing energy consumption.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading21">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse21" aria-expanded="false" aria-controls="collapse21">
+            What plants are essential for maintaining a healthy, balanced ecosystem in a fish pond?
+          </button>
+        </h2>
+        <div id="collapse21" class="accordion-collapse collapse" aria-labelledby="heading21" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">A balanced pond ecosystem requires four categories of plants: Oxygenators like Hornwort, Anacharis, and Waterweed that release oxygen and absorb excess nutrients; Deep-water aquatics such as Water Lilies and Lotus that provide shade and hiding places for fish; Marginal plants including Cattails, Irises, and Pickerel Rush that grow at pond edges and absorb nutrients with their roots; Floating plants like Water Hyacinth and Water Lettuce that provide shade and compete with algae for nutrients (check local regulations as some are invasive). Aim for 60-70% surface coverage with plants to prevent algae blooms. These plants work together to create a natural filtration system, reduce maintenance needs, and provide habitat for beneficial microorganisms. Avoid overstocking fish, as they produce waste that can overwhelm the natural balance plants provide. At ALPINIA, we create planting plans specific to your pond size, fish load, and sunlight conditions to establish thriving aquatic ecosystems.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Walkways, Gazebos & Structures -->
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading22">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse22" aria-expanded="false" aria-controls="collapse22">
+            What are the most durable and slip-resistant materials for garden walkways in rainy climates?
+          </button>
+        </h2>
+        <div id="collapse22" class="accordion-collapse collapse" aria-labelledby="heading22" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">For rainy climates, select walkway materials that provide excellent traction when wet and resist deterioration from moisture. Natural stone with textured surfaces (flagstone, slate with natural cleft faces) offers excellent slip resistance and ages beautifully. Thermally treated granite provides a non-slip surface even when wet. Concrete pavers with textured finishes or exposed aggregate offer good traction and durability. Gravel paths with angular crushed stone (not round pea gravel) compact well and provide drainage, though they require edging to contain the material. Permeable pavers allow water to drain through while providing a stable surface. Avoid smooth surfaces like polished stone, standard concrete, or ceramic tiles in consistently wet areas. Proper installation with adequate drainage (1-2% slope away from structures) and good base preparation is as important as material selection. At ALPINIA, we design walkways with climate-specific materials and proper drainage to ensure safety and longevity.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading23">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse23" aria-expanded="false" aria-controls="collapse23">
+            How do I determine the ideal size and placement for a gazebo in my backyard landscape?
+          </button>
+        </h2>
+        <div id="collapse23" class="accordion-collapse collapse" aria-labelledby="heading23" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Determining the ideal gazebo size and placement requires considering multiple factors: Function first—will it be used for dining (needs 10'x10' minimum), lounging (8'x8' minimum), or as a garden feature (6' diameter)? Scale relative to your property—large properties can accommodate 12'x12' or larger structures, while urban gardens may max out at 8'x8'. Placement should consider: sun exposure (morning sun for breakfast areas, afternoon shade for lounging), views (position to capture garden vistas or block unwanted ones), privacy (distance from neighbors' sightlines), access (easy path connection to main house), utilities (proximity to electricity for lighting, water features), and existing landscape features (avoiding root zones of significant trees). The gazebo should feel like an organic extension of your home and garden, not an afterthought. At ALPINIA, we create site plans that integrate gazebos as functional destinations within the larger landscape design.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading24">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse24" aria-expanded="false" aria-controls="collapse24">
+            What foundation requirements are necessary for a permanent gazebo structure to ensure stability and longevity?
+          </button>
+        </h2>
+        <div id="collapse24" class="accordion-collapse collapse" aria-labelledby="heading24" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">Permanent gazebo foundations must address soil conditions, local building codes, and structure weight. Common foundation types: Concrete piers (most common for residential gazebos) extending below the frost line in your area (typically 36-48" deep in northern climates) with sonotubes 12-18" in diameter; Concrete slab foundations (4-6" thick) with proper reinforcement and drainage; Post anchors embedded in concrete footings that connect to the gazebo posts. Foundation requirements vary by location—coastal areas need corrosion-resistant materials, high-wind zones require additional bracing, and areas with expansive soils need specialized foundation designs. Most municipalities require building permits for permanent gazebos over 100 sq ft or with electrical installations. Proper site preparation includes removing topsoil, compacting subsoil, adding gravel base for drainage, and ensuring the foundation is perfectly level. At ALPINIA, we work with structural engineers when needed and ensure all gazebo foundations meet or exceed local building codes for safety and longevity.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Maintenance Services -->
+      <div class="accordion-item mb-3 border rounded-3">
+        <h2 class="accordion-header" id="heading25">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse25" aria-expanded="false" aria-controls="collapse25">
+            What's included in a comprehensive seasonal garden maintenance program, and how often should each task be performed?
+          </button>
+        </h2>
+        <div id="collapse25" class="accordion-collapse collapse" aria-labelledby="heading25" data-bs-parent="#qaAccordion">
+          <div class="accordion-body">
+            <p class="mb-0">A comprehensive seasonal maintenance program includes:</p>
+            <p><strong>Spring (monthly):</strong> Pruning dormant plants, applying pre-emergent weed control, fertilizing lawns and beds, mulching beds, dividing perennials, soil testing and amendments, irrigation system startup and calibration, cleaning water features.</p>
+            <p><strong>Summer (bi-weekly):</strong> Mowing lawns at proper heights, deadheading flowers, monitoring irrigation, pest and disease scouting, light pruning of summer-blooming shrubs, maintaining water features (cleaning filters, checking water levels), adjusting irrigation for weather conditions.</p>
+            <p><strong>Fall (monthly):</strong> Cutting back perennials, planting bulbs, aerating and overseeding lawns, applying winter fertilizer, cleaning gutters and removing fallen leaves, pruning non-spring flowering shrubs, winterizing irrigation systems, protecting sensitive plants.</p>
+            <p><strong>Winter (as needed):</strong> Snow and ice removal from hardscapes, winter protection for sensitive plants (burlapping, wrapping), checking stored tools and equipment, planning for next season, emergency plant protection during extreme cold events.</p>
+            <p>Professional maintenance programs are customized based on your garden's specific needs, plant types, local climate, and your aesthetic preferences. Most residential properties benefit from weekly or bi-weekly visits during peak growing seasons with less frequent visits during winter months. At ALPINIA, we create personalized maintenance schedules with detailed task lists and seasonal adjustments to keep your landscape thriving year-round.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section animate-on-scroll" id="contact">
+    <div class="container">
+      <h2 class="animate-fast delay-1">Ready to Transform Your Outdoor Space?</h2>
+      <p class="animate-fast delay-2">Get a free consultation and let our experts bring your dream garden to life.</p>
+      <a href="tel:+919876543210" class="btn-cta animate-fast delay-3">Call Us Today</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h4 class="mb-3">ALPINIA Greenings</h4>
+          <p>Bringing nature closer to your home with elegance, creativity, and decades of trusted expertise.</p>
+          <p><i class="fas fa-envelope me-2"></i> info@alpiniagreenings.com</p>
+          <p><i class="fas fa-phone me-2"></i> +91 974 5501 666</p>
+        </div>
+        <div class="col-md-6">
+          <h5 class="mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#blogs">Blogs</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4" style="background: #f0c75e; height: 1px; border: 0;" />
+      <p class="text-center mb-0">© 2025 ALPINIA Greenings. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add base animation classes
+      document.querySelectorAll('.value-card, .service-item').forEach(el => {
+        el.classList.add('animate-fast');
+      });
+
+      // Function to check if element is in viewport
+      function isInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top <= window.innerHeight * 0.9 &&
+          rect.bottom >= 0
+        );
+      }
+
+      // Handle scroll
+      function handleScroll() {
+        // Animate main sections
+        document.querySelectorAll('section').forEach((section, i) => {
+          if (isInViewport(section) && !section.classList.contains('animate')) {
+            section.classList.add('animate');
+          }
+        });
+
+        // Animate fast elements (cards, text, etc.)
+        document.querySelectorAll('.animate-fast').forEach((el, i) => {
+          if (isInViewport(el) && !el.classList.contains('animate')) {
+            // Add staggered delay
+            const delayClass = 'delay-' + ((i % 4) + 1);
+            el.classList.add(delayClass);
+            el.classList.add('animate');
+          }
+        });
+      }
+
+      // Initial check (in case content is already visible)
+      handleScroll();
+
+      // Listen to scroll
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
