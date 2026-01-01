@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – ALPINIA Greenings</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #0f3d2e;
+      --accent: #f0c75e;
+      --light: #f8fdf9;
+      --white: #ffffff;
+      --dark-text: #2d2d2d;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--dark-text);
+      scroll-behavior: smooth;
+      margin: 0;
+      padding-top: 80px; /* Account for fixed navbar */
+    }
+
+    /* === ANIMATION CLASSES === */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .animate-on-scroll.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .animate-fast {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    .animate-fast.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+    /* === BANNER === */
+    .banner-section {
+      position: relative;
+      height: 100vh;
+      min-height: 400px;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('img/pathway.png') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .banner-content h1 {
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    }
+    .banner-content p {
+      max-width: 800px;
+      margin: 0 auto 25px;
+      opacity: 0.95;
+      font-size: 1.1rem;
+    }
+    .btn-banner {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 600;
+      padding: 10px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-banner:hover {
+      background: #e0b342;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    /* === COMMON STYLES === */
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--primary);
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+    .section-subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: #555;
+      font-size: 1.05rem;
+    }
+
+    /* === CONTACT FORM STYLES === */
+    .contact-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+      margin-top: -50px;
+      position: relative;
+      z-index: 2;
+    }
+    .contact-info {
+      background: linear-gradient(135deg, var(--primary), #043b25);
+      padding: 40px;
+      color: white;
+    }
+    .contact-info h3 {
+      color: var(--accent);
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    .contact-detail {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .contact-icon {
+      width: 45px;
+      height: 45px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 18px;
+    }
+    .contact-text h5 {
+      margin-bottom: 3px;
+      font-weight: 600;
+    }
+    .contact-form {
+      padding: 40px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-control {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 12px 15px;
+      transition: border-color 0.3s;
+    }
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.2rem rgba(15, 61, 46, 0.25);
+    }
+    .form-control::placeholder {
+      color: #aaa;
+    }
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .btn-submit {
+      background: linear-gradient(135deg, var(--primary), #043b25);
+      border: none;
+      padding: 12px 35px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+    }
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(15, 61, 46, 0.3);
+    }
+    .alert {
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    /* === MAP SECTION === */
+    .map-container {
+      height: 350px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      margin-top: 50px;
+    }
+    .map-placeholder {
+      background: linear-gradient(135deg, #4caf50, var(--primary));
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* === NAVBAR === */
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23056651' stroke-width='3' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+    .navbar {
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-bottom: 4px solid #056651;
+      backdrop-filter: blur(6px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    .navbar-brand {
+      font-size: 28px;
+      font-weight: 700;
+      color: #f0c75e !important;
+      letter-spacing: 1px;
+    }
+    .nav-link {
+      color: #056651 !important;
+      margin-right: 15px;
+      font-weight: 500;
+      position: relative;
+    }
+    .nav-link:hover {
+      color: #f0c75e !important;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #f0c75e;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: #0f3d2e;
+      color: #fff;
+      padding: 40px 0 20px;
+    }
+    footer a {
+      color: #f0c75e;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    /* === CTA === */
+    .cta-section {
+      background: var(--primary);
+      color: white;
+      padding: 70px 0;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    .btn-cta {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 600;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+    .btn-cta:hover {
+      background: #dcb13a;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 992px) {
+      .contact-info {
+        padding: 30px;
+      }
+      .contact-form {
+        padding: 30px;
+      }
+    }
+    @media (max-width: 768px) {
+      body { padding-top: 70px; }
+      .banner-section { height: 60vh; }
+      .contact-container {
+        margin-top: -30px;
+      }
+      .contact-info, .contact-form {
+        padding: 25px;
+      }
+    }
+    @media (max-width: 576px) {
+      .section-title { font-size: 1.8rem; }
+      .banner-content h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home"><img src="img/logo.png" alt="Logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="banner-section animate-on-scroll">
+    <div class="container">
+      <div class="banner-content">
+        <h1>Contact ALPINIA Greenings</h1>
+        <p>Have questions about our landscaping services? Reach out to our team for a consultation or quote.</p>
+        <a href="#contact-form" class="btn-banner">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact-form mt-4" class="animate-on-scroll">
+    <div class="container">
+      <div class="contact-container">
+        <div class="row g-0">
+          <div class="col-lg-5">
+            <div class="contact-info">
+              <h3>Get In Touch</h3>
+              <p>We're here to help you create the perfect outdoor space. Contact us today for a free consultation.</p>
+              
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h5>Office Address</h5>
+                  <p>123 Garden Street, Green City, Kerala</p>
+                </div>
+              </div>
+              
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h5>Phone Number</h5>
+                  <p>+91 974 5501 666</p>
+                  <p>+91 854 7892 100</p>
+                </div>
+              </div>
+              
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h5>Email Address</h5>
+                  <p>info@alpiniagreenings.com</p>
+                  <p>support@alpiniagreenings.com</p>
+                </div>
+              </div>
+              
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-text">
+                  <h5>Working Hours</h5>
+                  <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                  <p>Sunday: Closed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-7">
+            <div class="contact-form">
+              <h2 class="section-title mb-4">Send Us a Message</h2>            
+
+              
+              <form>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="name" id="name" placeholder="Your Name *" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Your Email *" required>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <textarea class="form-control" name="message" id="message" placeholder="Your Message *" required></textarea>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <!-- <button type="submit" class="btn btn-primary btn-submit">Send Message</button> -->
+                    <button class="btn btn-primary btn-submit" type="button" onclick="sendToWhatsApp()">Send to WhatsApp</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- LOCATION MAP -->
+      <div class="map-container animate-on-scroll delay-1">
+        <div class="map-placeholder">
+          <i class="fas fa-map-marked-alt me-3"></i> 
+          Our Location - Green City, Kerala
+        </div>
+      </div>
+    </div>
+  </section>
+<br />
+  <!-- CTA -->
+  <section class="cta-section animate-on-scroll">
+    <div class="container">
+      <h2 class="animate-fast delay-1">Ready to Transform Your Outdoor Space?</h2>
+      <p class="animate-fast delay-2">Get a free consultation and let our experts bring your dream garden to life.</p>
+      <a href="tel:+919745501666" class="btn-cta animate-fast delay-3">Call Us Today</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h4 class="mb-3">ALPINIA Greenings</h4>
+          <p>Bringing nature closer to your home with elegance, creativity, and decades of trusted expertise.</p>
+          <p><i class="fas fa-envelope me-2"></i> info@alpiniagreenings.com</p>
+          <p><i class="fas fa-phone me-2"></i> +91 974 5501 666</p>
+        </div>
+        <div class="col-md-6">
+          <h5 class="mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4" style="background: #f0c75e; height: 1px; border: 0;" />
+      <p class="text-center mb-0">© 2025 ALPINIA Greenings. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add base animation classes
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        el.classList.add('animate-on-scroll');
+      });
+
+      // Function to check if element is in viewport
+      function isInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top <= window.innerHeight * 0.9 &&
+          rect.bottom >= 0
+        );
+      }
+
+      // Handle scroll
+      function handleScroll() {
+        // Animate elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+          if (isInViewport(el) && !el.classList.contains('animate')) {
+            el.classList.add('animate');
+          }
+        });
+
+        // Animate fast elements
+        document.querySelectorAll('.animate-fast').forEach((el, i) => {
+          if (isInViewport(el) && !el.classList.contains('animate')) {
+            // Add staggered delay
+            const delayClass = 'delay-' + ((i % 4) + 1);
+            el.classList.add(delayClass);
+            el.classList.add('animate');
+          }
+        });
+      }
+
+      // Initial check
+      handleScroll();
+
+      // Listen to scroll
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    });
+  </script> 
+
+<script>
+function sendToWhatsApp() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value; // ← Don't forget this!
+  const message = document.getElementById("message").value;
+
+  const whatsappMessage = 
+    `Name: ${name} ` +
+    `Email: ${email} ` +
+    `Subject: ${subject} ` +
+    `Message: ${message}`;
+
+  const phoneNumber = "919446447841"; // India code + your number
+  window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+}
+</script>
+
+</body>
+</html>
+
